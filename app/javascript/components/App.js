@@ -7,6 +7,7 @@ import BreedsShowContainer from '../containers/BreedsShowContainer';
 const App = props => {
   return(
     <Router history = {browserHistory}>
+      <Route path='/' component={BreedsIndexContainer} />
       <Route path='breeds' component={BreedsIndexContainer} />
       <Route path='breeds/:id' component={BreedsShowContainer} />
     </Router>
