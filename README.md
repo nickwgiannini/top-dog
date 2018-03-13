@@ -1,4 +1,4 @@
-[![Build Status](https://codeship.com/projects/4e950cd0-084b-0136-da1b-46f3ea952830/status?branch=master)
+![Build Status](https://codeship.com/projects/4e950cd0-084b-0136-da1b-46f3ea952830/status?branch=master)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6865a2e9d752dd09dab5/test_coverage)](https://codeclimate.com/github/nickwgiannini/top-dog/test_coverage)
 [![Coverage Status](https://coveralls.io/repos/github/nickwgiannini/top-dog/badge.svg?branch=master)](https://coveralls.io/github/nickwgiannini/top-dog?branch=master)
 
@@ -16,25 +16,25 @@
                   888                                  "Y88P"
 ```
 Thanks for visiting Top-Dog! Our service is offering open source code to the community for learning and practical application.
-
-Please ensure you have the latest ruby version.
- --        2.5.0      --
+---
+Please ensure you have the latest ruby version.      
+ --      2.5.0        --    
  --`brew install ruby`--
 ```
-#Install dependencies!
+# Install dependencies!
 npm install
 bundle install
 rails db:create
 rails db:migrate
 ```
-Build:
+###Build:###
 ```
 # localhost:3000
 bundle exec rails server
 npm start
 ```
 ```
-#To run our test suite:
+# To run our test suite:
 rake db:test:prepare
 rspec
 ```
