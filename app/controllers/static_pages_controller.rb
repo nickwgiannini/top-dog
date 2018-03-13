@@ -1,4 +1,4 @@
 class StaticPagesController < ApplicationController
-  def index
-  end
+# this is the StaticPagesController to implement react
+  def index; end
 end
