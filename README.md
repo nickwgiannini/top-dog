@@ -2,27 +2,46 @@
 [![Code Climate](https://codeclimate.com/github/<nickwgiannini>/<top-dog>/badges/gpa.svg)](https://codeclimate.com/github/<nickwgiannini>/<top-dog>)
 [![Coverage Status](https://coveralls.io/repos/github/<YOUR_GITHUB_USERNAME>/<top-dog>/badge.svg?branch=master)](https://coveralls.io/github/<YOUR_GITHUB_USERNAME>/<top-dog>?branch=master)
 
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+,----,                                                             
+,/   .`|                                                             
+,`   .'  :                              ,---,                          
+;    ;     /        ,-.----.            .'  .' `\                        
+.'___,/    ,'  ,---.  \    /  \         ,---.'     \    ,---.              
+|    :     |  '   ,'\ |   :    |        |   |  .`\  |  '   ,'\   ,----._,.
+;    |.';  ; /   /   ||   | .\ :        :   : |  '  | /   /   | /   /  ' /
+`----'  |  |.   ; ,. :.   : |: |        |   ' '  ;  :.   ; ,. :|   :     |
+'   :  ;'   | |: :|   |  \ :        '   | ;  .  |'   | |: :|   | .\  .
+|   |  ''   | .; :|   : .  |        |   | :  |  ''   | .; :.   ; ';  |
+'   :  ||   :    |:     |`-'        '   : | /  ; |   :    |'   .   . |
+;   |.'  \   \  / :   : :           |   | '` ,/   \   \  /  `---`-'| |
+'---'     `----'  |   | :           ;   :  .'      `----'   .'__/\_: |
+              `---'.|           |   ,.'                 |   :    :
+                `---`           '---'                    \   \  /  
+                                                          `--`-'
 
-Things you may want to cover:
+Thanks for visiting Top-dog! Our service is offering open source code to the community for learning and practical application.
 
-* Ruby version
+Please ensure you have the latest ruby version.
+ --        2.5.0      --
+ --`brew install ruby`--
+```
+#Install dependencies!
+npm install
+bundle install
+rails db:create
+rails db:migrate
+```
+Build:
+```
+# localhost:3000
+bundle exec rails server
+npm start
+```
+```
+#To run our test suite:
+rake db:test:prepare
+rspec
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+API provided by:
