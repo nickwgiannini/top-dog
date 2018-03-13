@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/<nickwgiannini>/<top-dog>/badges/gpa.svg)](https://codeclimate.com/github/<nickwgiannini>/<top-dog>)
 [![Coverage Status](https://coveralls.io/repos/github/<YOUR_GITHUB_USERNAME>/<top-dog>/badge.svg?branch=master)](https://coveralls.io/github/<YOUR_GITHUB_USERNAME>/<top-dog>?branch=master)
 
-
+```
 ,----,                                                             
 ,/   .`|                                                             
 ,`   .'  :                              ,---,                          
@@ -19,7 +19,7 @@
               `---'.|           |   ,.'                 |   :    :
                 `---`           '---'                    \   \  /  
                                                           `--`-'
-
+```
 Thanks for visiting Top-dog! Our service is offering open source code to the community for learning and practical application.
 
 Please ensure you have the latest ruby version.
