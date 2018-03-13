@@ -18,25 +18,26 @@
 Thanks for visiting Top-Dog! Our service is offering open source code to the community for learning and practical application.
 ---
 Please ensure you have the latest ruby version.      
- --      2.5.0        --    
+**2.5.0**  
  --`brew install ruby`--
 ```
 # Install dependencies!
-npm install
-bundle install
-rails db:create
-rails db:migrate
+$ npm install
+$ bundle install
+$ rails db:create
+$ rails db:migrate
 ```
-###Build:###
+Build:
+---
 ```
 # localhost:3000
-bundle exec rails server
-npm start
+$ bundle exec rails server
+$ npm start
 ```
 ```
 # To run our test suite:
-rake db:test:prepare
-rspec
+$ rake db:test:prepare
+$ rspec
 ```
 
 API provided by:
