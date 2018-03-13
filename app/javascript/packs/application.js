@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (reactElement) {
       ReactDOM.render(
         <App />,
-
         reactElement
       )
     }
