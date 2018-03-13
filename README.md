@@ -3,24 +3,19 @@
 [![Coverage Status](https://coveralls.io/repos/github/<YOUR_GITHUB_USERNAME>/<top-dog>/badge.svg?branch=master)](https://coveralls.io/github/<YOUR_GITHUB_USERNAME>/<top-dog>?branch=master)
 
 ```
-,----,                                                             
-,/   .`|                                                             
-,`   .'  :                              ,---,                          
-;    ;     /        ,-.----.            .'  .' `\                        
-.'___,/    ,'  ,---.  \    /  \         ,---.'     \    ,---.              
-|    :     |  '   ,'\ |   :    |        |   |  .`\  |  '   ,'\   ,----._,.
-;    |.';  ; /   /   ||   | .\ :        :   : |  '  | /   /   | /   /  ' /
-`----'  |  |.   ; ,. :.   : |: |        |   ' '  ;  :.   ; ,. :|   :     |
-'   :  ;'   | |: :|   |  \ :        '   | ;  .  |'   | |: :|   | .\  .
-|   |  ''   | .; :|   : .  |        |   | :  |  ''   | .; :.   ; ';  |
-'   :  ||   :    |:     |`-'        '   : | /  ; |   :    |'   .   . |
-;   |.'  \   \  / :   : :           |   | '` ,/   \   \  /  `---`-'| |
-'---'     `----'  |   | :           ;   :  .'      `----'   .'__/\_: |
-              `---'.|           |   ,.'                 |   :    :
-                `---`           '---'                    \   \  /  
-                                                          `--`-'
+88888888888                       8888888b.                    
+    888                           888  "Y88b                   
+    888                           888    888                   
+    888   .d88b.  88888b.         888    888  .d88b.   .d88b.  
+    888  d88""88b 888 "88b        888    888 d88""88b d88P"88b
+    888  888  888 888  888 888888 888    888 888  888 888  888
+    888  Y88..88P 888 d88P        888  .d88P Y88..88P Y88b 888
+    888   "Y88P"  88888P"         8888888P"   "Y88P"   "Y88888
+                  888                                      888
+                  888                                 Y8b d88P
+                  888                                  "Y88P"
 ```
-Thanks for visiting Top-dog! Our service is offering open source code to the community for learning and practical application.
+Thanks for visiting Top-Dog! Our service is offering open source code to the community for learning and practical application.
 
 Please ensure you have the latest ruby version.
  --        2.5.0      --
