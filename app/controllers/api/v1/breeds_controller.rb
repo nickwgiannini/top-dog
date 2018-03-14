@@ -5,9 +5,9 @@ class Api::V1::BreedsController < ApiController
   end
 
 
-   # def show
-   #   render json: { breed: Breed.find(params[:id]) }
-   # end
+   def show
+     render json: { breed: Breed.find(params[:id]) }
+   end
 #
 #   def destroy
 #     @breed = Breed.find(params[:id])
