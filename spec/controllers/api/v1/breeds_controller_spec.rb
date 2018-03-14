@@ -24,24 +24,8 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
 
   describe "GET#index" do
     it "should return a list of the breeds" do
-
       get :index
       returned_json = JSON.parse(response.body)
-
     end
   end
-
-#   describe "GET#show" do
-#   it "should return a breed" do
-#
-#     get :show, params[:id] first_breed.id
-#     returned_json = JSON.parse(response.body)
-#
-#     expect(response.status).to eq 200
-#     expect(response.content_type).to eq("application/json")
-#
-#     expect(returned_json.length).to eq 2
-#     expect(returned_json['breed']["name"]).to eq "Shih Tzu"
-#   end
-# end
 end
