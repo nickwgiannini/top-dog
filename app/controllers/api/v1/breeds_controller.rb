@@ -3,10 +3,11 @@ class Api::V1::BreedsController < ApiController
   def index
     render json: Breed.all
   end
-#
-#   def show
-#     render json: { breed: Breed.find(params[:id]) }
-#   end
+
+
+   # def show
+   #   render json: { breed: Breed.find(params[:id]) }
+   # end
 #
 #   def destroy
 #     @breed = Breed.find(params[:id])
