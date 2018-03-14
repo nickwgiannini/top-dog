@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Api::V1::ReviewsController < ApplicationController
   def index
     render json: { review: Review.all }
   end
@@ -19,6 +19,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:breeds_id, :user_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl)
+    params.require(:review).permit(:breed, :user, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl)
   end
 end

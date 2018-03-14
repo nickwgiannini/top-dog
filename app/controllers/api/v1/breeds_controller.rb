@@ -1,4 +1,4 @@
-class BreedsController < ApplicationController
+class Api::V1::BreedsController < ApplicationController
   def index
     render json: { review: Breed.all }
   end
