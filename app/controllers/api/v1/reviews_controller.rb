@@ -3,16 +3,31 @@ class Api::V1::ReviewsController < ApplicationController
     render json: { review: Review.all }
   end
 
-  def delete
-    Review.find(params[:id])
+  def new
+    @breed = Breed.find(params[:breed_id])
+    @review = Review.new
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_to breeds_path
   end
 
   def create
-    review = Review.new(review_params)
-    if review.save
-      render json: { review: review }
+    @breed = Breed.find(params[:breed_id])
+    @review = Review.new(review_params)
+    @review.breed = @breed
+    @user = User.find(params[:user_id])
+    @review.user = @user
+
+    if @review.save
+      flash[:success] = 'Review Submitted'
+      redirect_to breed_path(@breed)
     else
-      render json: { error: review.errors.full_messages }, status: :unprocessable_entity
+      flash[:errors] = @review.errors.full_messages.join(', ')
+      render :new
     end
   end
 

@@ -7,16 +7,22 @@ class Api::V1::BreedsController < ApplicationController
     render json: { review: Breed.find(params[:id]) }
   end
 
-  def delete
-    Breed.find(params[:id])
+  def destroy
+    @breed = Breed.find(params[:id])
+    @breed.destroy
+
+    redirect_to breeds_path
   end
 
+# admin feature. dont allow users to create breeds
   def create
-    breed = Breed.new(breed_params)
-    if breed.save
-      render json: { breed: breed }
+    @breed = Breed.new(breed_params)
+    if @breed.save
+      flash[:success] = 'Breed Submitted'
+      redirect_to breed_path(@breed)
     else
-      render json: { error: breed.errors.full_messages }, status: :unprocessable_entity
+      flash[:errors] = @breed.errors.full_messages.join(', ')
+      render :new
     end
   end
 
