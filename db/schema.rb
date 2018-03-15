@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314144608) do
+ActiveRecord::Schema.define(version: 20180315134842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20180314144608) do
     t.string "life_expectancy", null: false
     t.string "personality", null: false
     t.string "shedding", null: false
-    t.integer "height", null: false
-    t.integer "weight", null: false
+    t.string "height", null: false
+    t.string "weight", null: false
     t.string "grooming", null: false
     t.string "img_url", null: false
     t.integer "kid_friendly_avg"
