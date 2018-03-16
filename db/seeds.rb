@@ -186,7 +186,7 @@ Breed.create(
  grooming:'specialty/proffesional',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12222717/Yorkshire-Terrier-Care.jpg',
 )
-Breed.create(
+b1 = Breed.create(
  name: 'Toy Fox Terrier',
  life_expectancy:'13-15 years',
  personality:'inteligent, alert, friendly',
@@ -196,3 +196,5 @@ Breed.create(
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12223439/Toy-Fox-Terrier-Care.jpg',
 )
+u1 = User.create(email: "asd@gmail.com", encrypted_password: "fsrt", password: "fsrt", sign_in_count: 1, created_at: Time.now, updated_at: Time.now )
+r1 = Review.create(breed: b1, user: u1, kid_friendly: 6, dog_friendly: 9, barking_lvl: 3, trainability: 8, energy_lvl: 6)
