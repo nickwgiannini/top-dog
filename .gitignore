@@ -25,3 +25,4 @@ yarn-debug.log*
 /coverage
 .env
 package-lock.json
+packs/ds_store

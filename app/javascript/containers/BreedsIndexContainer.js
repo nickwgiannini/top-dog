@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router,browserHistory, Route, IndexRoute} from 'react-router'
+import {Router, browserHistory, Route, IndexRoute} from 'react-router'
 import BackButton from '../components/BackButton'
 import BreedIndexTile from '../components/BreedIndexTile'
 

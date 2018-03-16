@@ -12,5 +12,4 @@ describe('BreedsIndexContainer', () => {
   it('should have the specified initial state', () => {
     expect(wrapper.state()).toEqual({breeds : []});
   })
-
 })

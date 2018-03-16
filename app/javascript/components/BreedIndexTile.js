@@ -9,9 +9,6 @@ const BreedIndexTile = (props) => {
       <p className="text-center featured-image-block-title">{props.name}</p>
     </a>
   </div>
-
-
-)
-}
+)}
 
 export default BreedIndexTile;
