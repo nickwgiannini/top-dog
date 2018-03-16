@@ -4,6 +4,12 @@ class Api::V1::BreedsController < ApiController
     render json: {breeds: Breed.all}
   end
 
+  # def create
+  #   if user.admin
+  #
+  #   end
+  # end
+
   def show
     breed = Breed.find(params[:id])
     reviews = breed.reviews
