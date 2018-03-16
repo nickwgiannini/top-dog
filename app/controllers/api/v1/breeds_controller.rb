@@ -1,29 +1,13 @@
-class Api::V1::BreedsController < ApplicationController
+class Api::V1::BreedsController < ApiController
+
   def index
-    render json: { review: Breed.all }
+    render json: {breeds: Breed.all}
   end
 
   def show
-    render json: { review: Breed.find(params[:id]) }
-  end
-
-  def destroy
-    @breed = Breed.find(params[:id])
-    @breed.destroy
-
-    redirect_to breeds_path
-  end
-
-# admin feature. dont allow users to create breeds
-  def create
-    @breed = Breed.new(breed_params)
-    if @breed.save
-      flash[:success] = 'Breed Submitted'
-      redirect_to breed_path(@breed)
-    else
-      flash[:errors] = @breed.errors.full_messages.join(', ')
-      render :new
-    end
+    breed = Breed.find(params[:id])
+    reviews = breed.reviews
+    render json: { breed: breed, reviews: reviews }
   end
 
   private
