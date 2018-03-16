@@ -26,4 +26,19 @@ describe('ReviewTile', () => {
       />
     );
   });
+
+  it('renders a div tag', done => {
+    setTimeout(() => {
+      expect(wrapper.find('div')).toBePresent();
+      done();
+    }, 0);
+  })
+
+  it('renders a div tag with body', done => {
+    setTimeout(() => {
+      expect(wrapper.find('div')).toHaveText("great dog");
+      done();
+    }, 0);
+  })
+
 })

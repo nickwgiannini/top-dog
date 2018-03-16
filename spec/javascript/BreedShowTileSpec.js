@@ -16,6 +16,7 @@ describe('BreedShowTile', () => {
     jasmineEnzyme();
     wrapper = mount(
       <BreedShowTile
+        id = '1'
         name = 'Brussels Griffon'
         life_expectancy ='12-15 years'
         personality ='alert, curious, loyal'
@@ -27,4 +28,12 @@ describe('BreedShowTile', () => {
       />
     );
   });
+
+  it('renders a div tag', done => {
+    setTimeout(() => {
+      expect(wrapper.find('div')).toBePresent();
+      done();
+    }, 0);
+  })
+
 })
