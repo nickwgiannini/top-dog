@@ -33,6 +33,7 @@ class BreedsIndexContainer extends Component {
 
   render() {
     let breeds = this.state.breeds.map(breed => {
+
       return(
         <BreedIndexTile
           key = {breed.id}

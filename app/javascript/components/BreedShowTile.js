@@ -4,14 +4,14 @@ import {Link} from 'react-router';
 const BreedShowTile = (props) => {
   return(
     <div>
-      {props.id}
-      {props.name}
-      {props.personality}
-      {props.shedding}
-      {props.height}
-      {props.weight}
-      {props.grooming}
-      {props.img_url}
+      {props.data.id}
+      {props.data.name}
+      {props.data.personality}
+      {props.data.shedding}
+      {props.data.height}
+      {props.data.weight}
+      {props.data.grooming}
+      {props.data.img_url}
   </div>
 )}
 

@@ -37,22 +37,23 @@ class BreedShowContainer extends Component {
   }
 
   render() {
+    let reviews = this.state.reviews.map(review => {
+
+      return(
+        <ReviewTile
+          body= {review.body}
+        />
+      )
+    })
+
     return(
       <div>
         <h1>Breed Show Page </h1>
         <BreedShowTile
-          id={this.state.breed.id}
-          name={this.state.breed.name}
-          personality={this.state.breed.personality}
-          shedding={this.state.breed.shedding}
-          height={this.state.breed.height}
-          weight={this.state.breed.weight}
-          grooming={this.state.breed.grooming}
-          img_url={this.state.breed.img_url}
+          data={this.state.breed}
         />
-        <ReviewTile
-        />
-
+        <h2> Reviews: </h2>
+        {reviews}
       </div>
     )
   }
