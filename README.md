@@ -18,9 +18,8 @@
 ```
 Thanks for visiting Top-Dog! Our service is offering open source code to the community for learning and practical application.
 ---
-Please ensure you have the latest ruby version.      
-**2.5.0**  
- --`brew install ruby`--
+Ruby Version:     
+**2.4.2**  
 ```
 # Install dependencies!
 $ npm install
