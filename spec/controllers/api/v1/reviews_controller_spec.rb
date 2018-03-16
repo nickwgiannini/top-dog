@@ -34,6 +34,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       energy_lvl: 6
     )
   end
+
   describe 'GET#index' do
       it 'returns a list of all the reviews' do
         get :index
@@ -58,7 +59,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     it "should create one review for the relevant breed" do
 
       post_json = JSON.parse r1.to_json
-
       params = {
         review: post_json
       }
@@ -68,13 +68,13 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(review_count + 1)
     end
   end
+
   describe "DELETE#destroy" do
     it "should delete one review for the relevant breed" do
       params = {
         id: r1.id
       }
       review_count = Review.count
-
       delete(:destroy, params: params)
       expect(Review.count).to eq(review_count - 1)
 

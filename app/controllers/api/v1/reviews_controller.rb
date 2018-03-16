@@ -18,20 +18,6 @@ class Api::V1::ReviewsController < ApiController
     end
   end
 
-    # @breed = Breed.find(params[:id])
-    # review = Review.new(review_params)
-    # @review.breed = @breed
-    # @user = User.find(params[:id])
-    # @review.user = @user
-    #
-    # if @review.save
-    #   flash[:success] = 'Review Submitted'
-    #   redirect_to breed_path(@breed)
-    # else
-    #   flash[:errors] = @review.errors.full_messages.join(', ')
-    #   render :new
-    # end
-
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
