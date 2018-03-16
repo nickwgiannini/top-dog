@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-
+gem "rspec-rails"
+gem "factory_bot_rails"
 end
 
 group :development do
