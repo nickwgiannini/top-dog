@@ -38,7 +38,6 @@ class BreedShowContainer extends Component {
 
   render() {
     let reviews = this.state.reviews.map(review => {
-
       return(
         <ReviewTile
           body= {review.body}

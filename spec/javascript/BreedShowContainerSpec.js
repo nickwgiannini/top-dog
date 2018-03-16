@@ -5,7 +5,6 @@ import BreedShowTile from '../../app/javascript/components/BreedShowTile';
 
 
 describe('BreedShowContainer', () => {
-  debugger
   let wrapper;
   beforeEach(() => {
     wrapper= mount(

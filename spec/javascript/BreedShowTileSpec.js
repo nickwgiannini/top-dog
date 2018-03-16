@@ -35,5 +35,4 @@ describe('BreedShowTile', () => {
       done();
     }, 0);
   })
-
 })
