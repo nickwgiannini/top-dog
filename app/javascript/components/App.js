@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router,browserHistory, Route, IndexRoute} from 'react-router'
 import BreedsIndexContainer from '../containers/BreedsIndexContainer';
-import BreedsShowContainer from '../containers/BreedsShowContainer';
+import BreedShowContainer from '../containers/BreedShowContainer';
 
 
 const App = props => {
@@ -9,7 +9,7 @@ const App = props => {
     <Router history = {browserHistory}>
       <Route path='/' component={BreedsIndexContainer} />
       <Route path='breeds' component={BreedsIndexContainer} />
-      <Route path='breeds/:id' component={BreedsShowContainer} />
+      <Route path='breeds/:id' component={BreedShowContainer} />
     </Router>
   )
 }
