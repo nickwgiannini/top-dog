@@ -34,11 +34,15 @@ describe('ReviewTile', () => {
     }, 0);
   })
 
-  it('renders a div tag with body', done => {
+  it("renders the dog's information",() => {
+    expect(wrapper.find('div')).toIncludeText("great dog", '6', '6', '9','3','8');
+  })
+
+
+  it('renders li tags with body', done => {
     setTimeout(() => {
-      expect(wrapper.find('div')).toHaveText("great dog");
+      expect(wrapper.find('li')).toBePresent();
       done();
     }, 0);
   })
-
 })

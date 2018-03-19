@@ -35,4 +35,27 @@ describe('BreedShowTile', () => {
       done();
     }, 0);
   })
-})
+
+  it("renders the dog's information", done => {
+    setTimeout(() => {
+      expect(wrapper.find('div')).toHaveText(
+        "Brussels Griffon", '12-15 years',
+        'alert, curious, loyal', 'Seasonal',
+        '7-10 inches', '8-10 pounds', '2-3 times a week brushing');
+        done();
+      }, 0);
+    })
+
+    it('renders an img tag', done => {
+      setTimeout(() => {
+        expect(wrapper.find('img')).toBePresent();
+        done();
+      }, 0);
+    })
+
+    it('should render an img tag with the specific props', () => {
+      expect(wrapper.find('img').props()).toEqual({
+        src: 'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213537/Brussels-Griffith-Care.jpg',
+      });
+    });
+  })

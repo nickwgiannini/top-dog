@@ -40,7 +40,13 @@ class BreedShowContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       return(
         <ReviewTile
-          body= {review.body}
+          key={review.id}
+          body={review.body}
+          kid_friendly={review.kid_friendly}
+          dog_friendly={review.dog_friendly}
+          barking_lvl={review.barking_lvl}
+          trainability={review.trainability}
+          energy_lvl={review.energy_lvl}
         />
       )
     })
@@ -57,7 +63,5 @@ class BreedShowContainer extends Component {
     )
   }
 }
-
-
 
 export default BreedShowContainer;
