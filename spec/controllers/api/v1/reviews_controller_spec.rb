@@ -34,6 +34,17 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       energy_lvl: 6
     )
   end
+  let!(:r2) do
+    Review.create(
+      breed_id: b1.id,
+      user_id: u1.id,
+      kid_friendly: 63,
+      dog_friendly: 92,
+      barking_lvl: 3,
+      trainability: 8,
+      energy_lvl: 6
+    )
+  end
 
   describe 'GET#index' do
       it 'returns a list of all the reviews' do
@@ -66,6 +77,16 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       post(:create, params: params)
 
       expect(Review.count).to eq(review_count + 1)
+    end
+    it 'should have errors when creating wrong' do
+      post_json = JSON.parse r2.to_json
+      params = {
+        review: post_json
+      }
+      review_count = Review.count
+      post(:create, params: params)
+      expect(Review.count).to eq(review_count)
+      expect(r2.errors.messages[:kid_friendly].first).to eq "is not included in the list"
     end
   end
 

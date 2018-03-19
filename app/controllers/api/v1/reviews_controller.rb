@@ -15,6 +15,8 @@ class Api::V1::ReviewsController < ApiController
     @review.user = current_user
     if @review.save
       render json: { status: 'Success', message: 'Saved new review', review: @review }, status: :ok
+    else
+      render json: { status: 'Error', message: 'There was an error', review: @review}, status: :ok
     end
   end
 
