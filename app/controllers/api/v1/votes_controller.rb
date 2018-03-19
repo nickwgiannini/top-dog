@@ -30,7 +30,6 @@ class Api::V1::VotesController < ApiController
     end
   end
 
-
   private
 
   def vote_params

@@ -1,9 +1,10 @@
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe 'GET#index' do
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:breed) { FactoryBot.create(:breed) }
+    let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
+
     it 'returns a list of all the reviews' do
-      user = FactoryBot.create(:user)
-      breed = FactoryBot.create(:breed)
-      review = FactoryBot.create(:review, user: user, breed: breed)
       get :index
 
       returned_json = JSON.parse(response.body)
@@ -23,11 +24,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   end
 
   describe "POST#create" do
-    it "should create one review for the relevant breed" do
-      user = FactoryBot.create(:user)
-      breed = FactoryBot.create(:breed)
-      review = FactoryBot.create(:review, user: user, breed: breed)
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:breed) { FactoryBot.create(:breed) }
+    let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
+    it "should create one review for the relevant breed" do
       post_json = JSON.parse review.to_json
       params = {
         review: post_json
@@ -40,11 +41,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   end
 
   describe "DELETE#destroy" do
-    it "should delete one review for the relevant breed" do
-      user = FactoryBot.create(:user)
-      breed = FactoryBot.create(:breed)
-      review = FactoryBot.create(:review, user: user, breed: breed)
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:breed) { FactoryBot.create(:breed) }
+    let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
+    it "should delete one review for the relevant breed" do
       params = {
         id: review.id
       }

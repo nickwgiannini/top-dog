@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.describe Api::V1::BreedsController, type: :controller do
   describe "GET#index" do
-    it "should return all breeds" do
-      user = FactoryBot.create(:user)
-      breed = FactoryBot.create(:breed)
-      review = FactoryBot.create(:review, user: user, breed: breed)
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:breed) { FactoryBot.create(:breed) }
+    let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
+    it "should return all breeds" do
       get :index
       returned_json = JSON.parse(response.body)
 
@@ -18,11 +18,10 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
   end
 
   describe "GET#show" do
+    let!(:breed) { FactoryBot.create(:breed) }
+    let!(:review) { FactoryBot.create(:review, breed: breed) }
+
     it "should return one breed and relevant reviews" do
-      breed = FactoryBot.create(:breed)
-      review = FactoryBot.create(:review, breed: breed)
-
-
       get :show, params: {id: breed.id, reviews: review}
       returned_json = JSON.parse(response.body)
 
