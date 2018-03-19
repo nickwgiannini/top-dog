@@ -27,6 +27,9 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:user) { FactoryBot.create(:user) }
     let!(:breed) { FactoryBot.create(:breed) }
     let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
+    let!(:review_with_errors) do
+      Review.create(breed_id: breed.id, user_id: user.id, kid_friendly: 26, dog_friendly: 9, barking_lvl: 3, trainability: 8, energy_lvl: 6)
+end
 
     it "should create one review for the relevant breed" do
       post_json = JSON.parse review.to_json
@@ -37,6 +40,16 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       post(:create, params: params)
 
       expect(Review.count).to eq(review_count + 1)
+    end
+    it 'should have errors when creating wrong' do
+      post_json = JSON.parse review_with_errors.to_json
+      params = {
+        review: post_json
+      }
+      review_count = Review.count
+      post(:create, params: params)
+      expect(Review.count).to eq(review_count)
+      expect(review_with_errors.errors.messages[:kid_friendly].first).to eq "is not included in the list"
     end
   end
 
