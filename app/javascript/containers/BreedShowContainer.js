@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router,browserHistory, Route, IndexRoute} from 'react-router'
+import {Router,browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
 
@@ -8,12 +8,12 @@ class BreedShowContainer extends Component {
     super(props);
     this.state = {
       breed: {},
-      reviews: []
+      reviews: [],
+      length: 0,
     }
+    this.getBreedInfo = this.getBreedInfo.bind(this)
   }
-
-  componentDidMount() {
-    let breedId = this.props.params.id;
+  getBreedInfo(breedId) {
     fetch(`/api/v1/breeds/${breedId}`)
     .then(response => {
       if (response.ok) {
@@ -28,14 +28,28 @@ class BreedShowContainer extends Component {
     .then(body => {
       let breed = body.breed
       let reviews = body.reviews
+      let length = body.length
+
       this.setState({
         breed: breed,
-        reviews: reviews
+        reviews: reviews,
+        length: length,
+
       });
+
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  componentDidMount(){
+    this.getBreedInfo(this.props.params.id)
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.params.id !== this.props.params.id) {
+        this.getBreedInfo(nextProps.params.id)
+    }
+}
   render() {
     let reviews = this.state.reviews.map(review => {
       return(
@@ -50,16 +64,18 @@ class BreedShowContainer extends Component {
         />
       )
     })
-
     return(
-      <div>
-        <h1>Breed Show Page </h1>
-        <BreedShowTile
-          data={this.state.breed}
-        />
-        <h2> Reviews: </h2>
-        {reviews}
-      </div>
+<div>
+    <h1>Breed Show Page </h1>
+      <BreedShowTile
+        data={this.state.breed}
+      />
+    <h2> Reviews: </h2>
+      {reviews}
+      <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link></ul>
+      <ul><Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
+</div>
+
     )
   }
 }
