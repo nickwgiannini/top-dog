@@ -55,6 +55,20 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       end
     end
 
+  describe "POST#create" do
+    it "should create one review for the relevant breed" do
+
+      post_json = JSON.parse r1.to_json
+      params = {
+        review: post_json
+      }
+      review_count = Review.count
+      post(:create, params: params)
+
+      expect(Review.count).to eq(review_count + 1)
+    end
+  end
+
   describe "DELETE#destroy" do
     it "should delete one review for the relevant breed" do
       params = {
@@ -63,6 +77,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       review_count = Review.count
       delete(:destroy, params: params)
       expect(Review.count).to eq(review_count - 1)
+
     end
   end
 end

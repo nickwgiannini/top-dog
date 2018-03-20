@@ -6,7 +6,7 @@ class Api::V1::BreedsController < ApiController
 
   def show
     breed = Breed.find(params[:id])
-    reviews = breed.reviews
+    reviews = breed.reviews.order('created_at DESC')
     render json: { breed: breed, reviews: reviews }
   end
 

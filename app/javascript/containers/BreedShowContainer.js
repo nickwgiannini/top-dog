@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router,browserHistory, Route, IndexRoute} from 'react-router'
+import {Router,browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
 import ReviewFormContainer from './ReviewFormContainer';
@@ -9,15 +9,16 @@ class BreedShowContainer extends Component {
     super(props);
     this.state = {
       breed: {},
-      reviews: []
+      reviews: [],
+      messages: []
     }
+    this.next = this.next.bind(this)
+    this.getBreedInfo = this.getBreedInfo.bind(this)
+    this.addNewReview = this.addNewReview.bind(this)
   }
 
-  componentDidMount() {
-    let breedId = this.props.params.id;
-    fetch(`/api/v1/breeds/${breedId}`,{
-      credentials: 'same-origin'
-    })
+  getBreedInfo(breedId) {
+    fetch(`/api/v1/breeds/${breedId}`)
     .then(response => {
       if (response.ok) {
         return response;
@@ -31,12 +32,32 @@ class BreedShowContainer extends Component {
     .then(body => {
       let breed = body.breed
       let reviews = body.reviews
+      let length = body.length
       this.setState({
         breed: breed,
-        reviews: reviews
+        reviews: reviews,
+        length: length,
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  componentDidMount(){
+    this.getBreedInfo(this.props.params.id)
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.params.id !== this.props.params.id) {
+      this.getBreedInfo(nextProps.params.id)
+    }
+  }
+
+  next(x) {
+    if (x <= this.state.length) {
+      this.setState({
+        next: "Next",
+      });
+    }
   }
 
   addNewReview(submission){
@@ -54,15 +75,23 @@ class BreedShowContainer extends Component {
             error = new Error(errorMessage)
             throw(error)
           }
-        }
-      )
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-    }
+        })
+    .then(response => response.json())
+    .then(body => {
+      this.componentDidMount()
+      this.setState({
+        messages: body.messages
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
 
 
 
 
   render() {
+    let message = this.state.messages[0]
     let reviews = this.state.reviews.map(review => {
       return(
         <ReviewTile
@@ -78,17 +107,19 @@ class BreedShowContainer extends Component {
     })
 
     return(
-      <div>
-        <h1>Breed Show Page </h1>
+      <div className="columns medium-10">
+        <h1>Doggy Details</h1>
         <BreedShowTile
           data={this.state.breed}
         />
+        <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link> | <Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
         <h2> Reviews: </h2>
         {reviews}
         <ReviewFormContainer
           id= {this.props.params.id}
           addNewReview= {this.addNewReview}
         />
+        <h3>{message}</h3>
       </div>
     )
   }
