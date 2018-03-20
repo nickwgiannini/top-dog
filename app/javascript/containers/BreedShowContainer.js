@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Router,browserHistory, Route, IndexRoute} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
+import ReviewFormContainer from './ReviewFormContainer';
 
 class BreedShowContainer extends Component {
   constructor(props) {
@@ -14,7 +15,9 @@ class BreedShowContainer extends Component {
 
   componentDidMount() {
     let breedId = this.props.params.id;
-    fetch(`/api/v1/breeds/${breedId}`)
+    fetch(`/api/v1/breeds/${breedId}`,{
+      credentials: 'same-origin'
+    })
     .then(response => {
       if (response.ok) {
         return response;
@@ -35,6 +38,9 @@ class BreedShowContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
+
+
 
   render() {
     let reviews = this.state.reviews.map(review => {
@@ -59,6 +65,9 @@ class BreedShowContainer extends Component {
         />
         <h2> Reviews: </h2>
         {reviews}
+        <ReviewFormContainer
+          id= {this.props.params.id}
+        />
       </div>
     )
   }

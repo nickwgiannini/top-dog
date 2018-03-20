@@ -13,7 +13,9 @@ class BreedsIndexContainer extends Component {
   }
 
   componentDidMount () {
-    fetch('/api/v1/breeds')
+    fetch('/api/v1/breeds', {
+      credentials: 'same-origin'
+    })
     .then (response => {
       if (response.ok) {
         return response;
