@@ -1,27 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  describe 'POST#create' do
+  describe 'GET#index' do
     let!(:user) { FactoryBot.create(:user) }
-    let!(:user_with_errors) do
-      User.create(role: "member", first_name: "Nick", last_name: "Giannini", username: "nickgiannini", email: nil, encrypted_password: "password", password: "password", password_confirmation: "password", sign_in_count: 0)
-    end
-
-    it 'should create a new user' do
+    let!(:user2) { FactoryBot.create(:user) }
+    it 'should show all users' do
       post_json = JSON.parse user.to_json
+
       user_count = User.count
 
-      post(:create, params: { user: post_json })
-      expect(User.count).to eq(user_count)
+      get(:index, params: { user: post_json })
+      expect(User.count).to eq 2
     end
+  end
 
-    it 'should give the user errors when signing up' do
-      post_json = JSON.parse user_with_errors.to_json
-      user_count = User.count
+  describe 'GET#show' do
+    let!(:user) { FactoryBot.create(:user) }
+    it 'should show a specific user' do
+      get(:show, params: { id: user.id })
+      post_json = JSON.parse(response.body)
 
-      post(:create, params: { user: post_json })
-      expect(User.count).to eq(user_count)
-      expect(user_with_errors.errors.messages[:email].first).to eq "can't be blank"
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+
+      expect(post_json['user']['id']).to eq 13
     end
   end
 end
