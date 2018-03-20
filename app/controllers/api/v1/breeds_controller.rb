@@ -3,11 +3,12 @@ class Api::V1::BreedsController < ApiController
   def index
     render json: {breeds: Breed.all}
   end
-  
+
   def show
     breed = Breed.find(params[:id])
     reviews = breed.reviews
-    render json: { breed: breed, reviews: reviews }
+    length = Breed.all.length
+    render json: { breed: breed, reviews: reviews, length: length }
   end
 
   private
