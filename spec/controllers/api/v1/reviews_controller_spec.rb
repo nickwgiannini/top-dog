@@ -29,7 +29,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
     let!(:review_with_errors) do
       Review.create(breed_id: breed.id, user_id: user.id, kid_friendly: 26, dog_friendly: 9, barking_lvl: 3, trainability: 8, energy_lvl: 6)
-end
+    end
 
     it "should create one review for the relevant breed" do
       post_json = JSON.parse review.to_json
