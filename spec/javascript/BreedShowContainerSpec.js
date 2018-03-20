@@ -16,7 +16,8 @@ describe('BreedShowContainer', () => {
       expect(wrapper.state()).toEqual({
         breed : {},
         reviews: [],
-        messages: []
+        messages: [],
+        length: 0
       });
     })
 

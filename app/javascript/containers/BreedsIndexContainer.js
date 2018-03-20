@@ -3,15 +3,13 @@ import {Router, browserHistory, Route, IndexRoute} from 'react-router'
 import BackButton from '../components/BackButton'
 import BreedIndexTile from '../components/BreedIndexTile'
 
-
 class BreedsIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      breeds: []
+      breeds: [],
     }
   }
-
   componentDidMount () {
     fetch('/api/v1/breeds', {
       credentials: 'same-origin'
@@ -32,10 +30,8 @@ class BreedsIndexContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
-
   render() {
     let breeds = this.state.breeds.map(breed => {
-
       return(
         <BreedIndexTile
           key = {breed.id}
@@ -45,17 +41,13 @@ class BreedsIndexContainer extends Component {
         />
       )
     })
-
     return (
-      <div className="pagination-centered">
-        <ul className ="pagination">
+
           <div className="featured-image-block-grid">
             <div className="row large-up-4 small-up-2">
               {breeds}
             </div>
           </div>
-        </ul>
-      </div>
     )
   }
 }

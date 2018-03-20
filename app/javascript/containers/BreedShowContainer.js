@@ -10,7 +10,8 @@ class BreedShowContainer extends Component {
     this.state = {
       breed: {},
       reviews: [],
-      messages: []
+      messages: [],
+      length: 0,
     }
     this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
@@ -86,26 +87,21 @@ class BreedShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
-
-
-
   render() {
     let message = this.state.messages[0]
     let reviews = this.state.reviews.map(review => {
       return(
         <ReviewTile
-          key={review.id}
-          body={review.body}
-          kid_friendly={review.kid_friendly}
-          dog_friendly={review.dog_friendly}
-          barking_lvl={review.barking_lvl}
-          trainability={review.trainability}
-          energy_lvl={review.energy_lvl}
+        key={review.id}
+        body={review.body}
+        kid_friendly={review.kid_friendly}
+        dog_friendly={review.dog_friendly}
+        barking_lvl={review.barking_lvl}
+        trainability={review.trainability}
+        energy_lvl={review.energy_lvl}
         />
       )
     })
-
     return(
       <div className="columns medium-10">
         <h1>Doggy Details</h1>
