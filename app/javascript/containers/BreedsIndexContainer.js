@@ -8,7 +8,6 @@ class BreedsIndexContainer extends Component {
     super(props);
     this.state = {
       breeds: [],
-      activePage: 1
     }
   }
   componentDidMount () {
@@ -29,10 +28,6 @@ class BreedsIndexContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
-
-
-
-
   render() {
     let breeds = this.state.breeds.map(breed => {
       return(

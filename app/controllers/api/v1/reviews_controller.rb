@@ -14,7 +14,7 @@ class Api::V1::ReviewsController < ApiController
     @current_user = User.find(params[:review][:user_id])
     @review.user = current_user
     if @review.save
-      render json: { status: 'Success', message: 'Saved new review', review: @review }, status: :ok
+      render json: { status: 'Success', message: 'Saved new review', review: @review, user: current_user }, status: :ok
     end
   end
 

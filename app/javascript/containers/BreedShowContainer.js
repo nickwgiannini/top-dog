@@ -47,34 +47,34 @@ class BreedShowContainer extends Component {
 
   componentWillReceiveProps(nextProps){
     if (nextProps.params.id !== this.props.params.id) {
-        this.getBreedInfo(nextProps.params.id)
+      this.getBreedInfo(nextProps.params.id)
     }
-}
+  }
   render() {
     let reviews = this.state.reviews.map(review => {
       return(
         <ReviewTile
-          key={review.id}
-          body={review.body}
-          kid_friendly={review.kid_friendly}
-          dog_friendly={review.dog_friendly}
-          barking_lvl={review.barking_lvl}
-          trainability={review.trainability}
-          energy_lvl={review.energy_lvl}
+        key={review.id}
+        body={review.body}
+        kid_friendly={review.kid_friendly}
+        dog_friendly={review.dog_friendly}
+        barking_lvl={review.barking_lvl}
+        trainability={review.trainability}
+        energy_lvl={review.energy_lvl}
         />
       )
     })
     return(
-<div>
-    <h1>Breed Show Page </h1>
+      <div>
+      <h1>Breed Show Page </h1>
       <BreedShowTile
-        data={this.state.breed}
+      data={this.state.breed}
       />
-    <h2> Reviews: </h2>
+      <h2> Reviews: </h2>
       {reviews}
       <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link></ul>
       <ul><Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
-</div>
+      </div>
 
     )
   }
