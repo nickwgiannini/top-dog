@@ -10,9 +10,7 @@ RSpec.describe User, type: :model do
   end
 
   it { should have_valid(:first_name).when('Jack') }
-  it { should_not have_valid(:first_name).when('', nil) }
   it { should have_valid(:last_name).when('Ripper') }
-  it { should_not have_valid(:last_name).when('', nil) }
   it { should have_valid(:username).when('TheRipper') }
   it { should_not have_valid(:username).when('', nil, '___', "Robert'); DROP TABLE STUDENTS; --'", 'boo') }
 

@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   validates_presence_of :email, :encrypted_password, :role, :sign_in_count
   validates_format_of :email, :with => /\A[^@,\s]+@[^@,\s]+\.[^@,\s]+\z/
-  validates_format_of :username, :with => /^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/
-  validates_format_of :first_name, :with => /^(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z]+(?<![_.])$/
-  validates_format_of :last_name, :with => /^(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z]+(?<![_.])$/
+  validates_format_of :username, :with => /\A(?=.{4,12}$)(?![_.])(?!.*[_.]{2})[a-zA-Z]+(?<![_.])\z/, message: "can't be blank. Characters can only be [a-z 0-9 . # - +]"
+  validates_format_of :first_name, :with => /\A(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z]+(?<![_.])\z/, :allow_nil => true, :allow_blank => true
+  validates_format_of :last_name, :with => /\A(?=.{2,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z]+(?<![_.])\z/, :allow_nil => true, :allow_blank => true
  def admin?
    role == 'admin'
  end
