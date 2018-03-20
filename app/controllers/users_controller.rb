@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   def delete
-    User.find(params[:id])
+    if current_user.admin?
+      User.find(params[:id]).destroy
+    end
   end
 
   def create
