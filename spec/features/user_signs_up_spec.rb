@@ -18,7 +18,7 @@ feature 'user registers', %Q{
     fill_in 'Email', with: "#{Faker::Internet.email}"
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-    fill_in 'Username', with: "poopsdwa2"
+    fill_in 'Username', with: "poopsdwa5"
 
     click_button 'Sign up'
 
