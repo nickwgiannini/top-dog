@@ -39,6 +39,26 @@ class BreedShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  addNewReview(submission){
+    fetch(`/api/v1/reviews`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(submission),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then (response => {
+          if (response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status}`
+            error = new Error(errorMessage)
+            throw(error)
+          }
+        }
+      )
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+
 
 
 
@@ -67,6 +87,7 @@ class BreedShowContainer extends Component {
         {reviews}
         <ReviewFormContainer
           id= {this.props.params.id}
+          addNewReview= {this.addNewReview}
         />
       </div>
     )

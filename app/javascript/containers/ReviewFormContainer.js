@@ -83,36 +83,8 @@ class ReviewFormContainer extends Component {
       trainability: this.state.trainability,
       energy_lvl: this.state.energy_lvl
     }
-
-    fetch(`/api/v1/reviews`, {
-      credentials: 'same-origin',
-      method: 'POST',
-      body: JSON.stringify(formPayload),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-        this.setState({
-          errors: {},
-          body: '',
-          breed_id: this.props.id,
-          kid_friendly: 1,
-          dog_friendly: 1,
-          barking_lvl: 1,
-          trainability: 1,
-          energy_lvl: 1
-        });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    this.props.addNewReview(formPayload)
+    this.handleClearForm(event)
   }
 
 
