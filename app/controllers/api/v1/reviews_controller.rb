@@ -1,4 +1,5 @@
 class Api::V1::ReviewsController < ApiController
+  skip_before_action :verify_authenticity_token
   def index
     reviews = Review.all
     render json: reviews
@@ -10,15 +11,14 @@ class Api::V1::ReviewsController < ApiController
   end
 
   def create
-    @review = Review.new(review_params)
-    @current_user = User.find(params[:review][:user_id])
-    @review.user = current_user
-    if @review.save
-      render json: { status: 'Success', message: 'Saved new review', review: @review }, status: :ok
-    else
-      render json: { status: 'Error', message: 'There was an error', review: @review}, status: :ok
+      @review = Review.new(review_params)
+      @review.user = current_user
+      if @review.save
+        render json: { messages: ['Saved new review'], reviews: Review.all}
+      else
+        render json: { messages: @review.errors.full_messages }
+      end
     end
-  end
 
   def destroy
     @review = Review.find(params[:id])
@@ -30,6 +30,6 @@ class Api::V1::ReviewsController < ApiController
   private
 
   def review_params
-    params.require(:review).permit(:breed_id, :user_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl)
+    params.require(:review).permit(:breed_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl, :body)
   end
 end

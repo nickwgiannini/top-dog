@@ -3,13 +3,13 @@ import {Link} from 'react-router';
 
 const ReviewTile = (props) => {
   return(
-    <div>
-      <li>{props.body}</li>
-      <li>{props.kid_friendly}</li>
-      <li>{props.dog_friendly}</li>
-      <li>{props.barking_lvl}</li>
-      <li>{props.trainability}</li>
-      <li>{props.energy_lvl}</li>
+    <div className="callout">
+      <li>Kid-Friendly: {props.kid_friendly}</li>
+      <li>Dog-Friendly: {props.dog_friendly}</li>
+      <li>Barking Level: {props.barking_lvl}</li>
+      <li>Trainability: {props.trainability}</li>
+      <li>Energy Level: {props.energy_lvl}</li>
+      <p>{props.body}</p>
     </div>
   )}
 
