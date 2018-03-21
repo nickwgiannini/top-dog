@@ -12,6 +12,8 @@ const ReviewTile = (props) => {
   body = review.body
   return(
     <div className="callout">
+      <h1>{props.userEmail}</h1>
+      <img src="" alt='profile picture'></img>
       <li>Kid-Friendly: {kid_friendly}</li>
       <li>Dog-Friendly: {dog_friendly}</li>
       <li>Barking Level: {barking_lvl}</li>

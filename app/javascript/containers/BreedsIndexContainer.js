@@ -9,10 +9,18 @@ class BreedsIndexContainer extends Component {
     super(props);
     this.state = {
       breeds: [],
-      searchResults: []
+      searchResults: [],
+      breedsPerPage: 4,
+      currentPage: 1
     }
     this.searchBreeds = this.searchBreeds.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
+  handleClick(event) {
+      this.setState({
+        currentPage: Number(event.target.id)
+      });
+    }
   componentDidMount () {
     fetch('/api/v1/breeds', {
       credentials: 'same-origin'
@@ -33,7 +41,6 @@ class BreedsIndexContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
-
   searchBreeds(submission) {
     let breeds = this.state.breeds
     let search = submission
@@ -48,9 +55,13 @@ class BreedsIndexContainer extends Component {
     )
     this.setState({breeds: results})
   }
-
   render() {
-    let breeds = this.state.breeds.map(breed => {
+    let breedsPerPage = this.state.breedsPerPage
+    let lastIndex = this.state.currentPage * breedsPerPage
+    let firstIndex = lastIndex - breedsPerPage
+    let displayBreeds = this.state.breeds.slice(firstIndex, lastIndex)
+
+    let breeds = displayBreeds.map(breed => {
       return(
         <BreedIndexTile
           key = {breed.id}
@@ -60,15 +71,29 @@ class BreedsIndexContainer extends Component {
         />
       )
     })
+    let pageNumbers = []
+    for (let i = 1; i <= Math.ceil(this.state.breeds.length / breedsPerPage); i++) {
+          pageNumbers.push(i);
+        }
+    let pages = pageNumbers.map(number => {
+      return (
+        <a onClick={this.handleClick}>
+          <ul key={number} id={number}>
+            {number}
+          </ul>
+        </a>
+      );
+    })
     return (
       <div className="featured-image-block-grid">
         <div className="row large-up-4 small-up-2">
           <SearchBarContainer
-            beers={this.state.beers}
+            breeds={this.state.breeds}
             searchBreeds={this.searchBreeds}
           />
           {breeds}
         </div>
+        {pages}
       </div>
     )
   }
