@@ -5,10 +5,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
     it 'returns a list of all the reviews' do
-<<<<<<< HEAD
-=======
 
->>>>>>> master
       sign_in user
       get :index, params: { breed: breed }
       returned_json = JSON.parse(response.body)
@@ -34,10 +31,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
 
     it "should create one review for the relevant breed" do
-<<<<<<< HEAD
-=======
 
->>>>>>> master
       sign_in user
       post_json = JSON.parse review.to_json
       params = {
@@ -48,10 +42,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(2)
     end
     it 'should have errors when creating wrong' do
-<<<<<<< HEAD
-=======
 
->>>>>>> master
       sign_in user
       post_json = JSON.parse review_with_errors.to_json
       params = {
@@ -69,10 +60,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response).to redirect_to(new_user_session_path)
     end
     it 'should the newly posted review and user' do
-<<<<<<< HEAD
-=======
 
->>>>>>> master
       sign_in user
       post_json = JSON.parse review.to_json
       post(:create, params: { review: post_json })

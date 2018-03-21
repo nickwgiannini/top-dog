@@ -69,7 +69,7 @@ class BreedShowContainer extends Component {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(submission),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     })
     .then (response => {
       if (response.ok) {
@@ -82,7 +82,6 @@ class BreedShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.componentDidMount()
       this.setState({
         messages: body.messages
       });
