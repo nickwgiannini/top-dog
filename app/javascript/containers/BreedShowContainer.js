@@ -72,14 +72,14 @@ class BreedShowContainer extends Component {
       headers: { 'Content-Type': 'application/json' }
     })
     .then (response => {
-          if (response.ok) {
-            return response
-          } else {
-            let errorMessage = `${response.status}`
-            error = new Error(errorMessage)
-            throw(error)
-          }
-        })
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status}`
+        error = new Error(errorMessage)
+        throw(error)
+      }
+    })
     .then(response => response.json())
     .then(body => {
       this.componentDidMount()
@@ -91,27 +91,27 @@ class BreedShowContainer extends Component {
   }
 
   render() {
-    console.log(this.state)
     let email;
+    let avatar;
     let message = this.state.messages[0]
     let reviews = this.state.reviews.map(review => {
       let users = this.state.users.map(user => {
         if (review.user_id == user.id) {
           email = user.email
-          }
-        })
-          return(
-            <ReviewTile
-              key={review.id}
-              body={review.body}
-              userEmail={email}
-              kid_friendly={review.kid_friendly}
-              dog_friendly={review.dog_friendly}
-              barking_lvl={review.barking_lvl}
-              trainability={review.trainability}
-              energy_lvl={review.energy_lvl}
-            />
-          )
+        }
+      })
+      return(
+        <ReviewTile
+          key={review.id}
+          body={review.body}
+          userEmail={email}
+          kid_friendly={review.kid_friendly}
+          dog_friendly={review.dog_friendly}
+          barking_lvl={review.barking_lvl}
+          trainability={review.trainability}
+          energy_lvl={review.energy_lvl}
+        />
+      )
 
     })
     return(
