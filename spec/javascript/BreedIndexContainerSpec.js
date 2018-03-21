@@ -9,7 +9,7 @@ describe('BreedsIndexContainer', () => {
   });
 
   it('should have the specified initial state', () => {
-    expect(wrapper.state()).toEqual({breeds : []});
+    expect(wrapper.state()).toEqual({breeds : [], searchResults: [], breedsPerPage: 4, currentPage: 1});
   })
 
   it('should render an BreedIndexTile Component', () => {
