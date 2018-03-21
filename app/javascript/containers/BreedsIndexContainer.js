@@ -50,7 +50,6 @@ class BreedsIndexContainer extends Component {
   }
 
   render() {
-    console.log(this.state)
     let breeds = this.state.breeds.map(breed => {
       return(
         <BreedIndexTile
