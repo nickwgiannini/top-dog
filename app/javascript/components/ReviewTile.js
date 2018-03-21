@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 const ReviewTile = (props) => {
   return(
     <div className="callout">
+      <h1>{props.userEmail}</h1>
       <li>Kid-Friendly: {props.kid_friendly}</li>
       <li>Dog-Friendly: {props.dog_friendly}</li>
       <li>Barking Level: {props.barking_lvl}</li>

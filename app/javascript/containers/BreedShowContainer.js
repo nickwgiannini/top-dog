@@ -11,6 +11,7 @@ class BreedShowContainer extends Component {
       breed: {},
       reviews: [],
       messages: [],
+      users: [],
       length: 0,
     }
     this.next = this.next.bind(this)
@@ -34,9 +35,11 @@ class BreedShowContainer extends Component {
       let breed = body.breed
       let reviews = body.reviews
       let length = body.length
+      let users = body.users
       this.setState({
         breed: breed,
         reviews: reviews,
+        users: users,
         length: length,
       });
     })
@@ -88,19 +91,28 @@ class BreedShowContainer extends Component {
   }
 
   render() {
+    console.log(this.state)
+    let email;
     let message = this.state.messages[0]
     let reviews = this.state.reviews.map(review => {
-      return(
-        <ReviewTile
-        key={review.id}
-        body={review.body}
-        kid_friendly={review.kid_friendly}
-        dog_friendly={review.dog_friendly}
-        barking_lvl={review.barking_lvl}
-        trainability={review.trainability}
-        energy_lvl={review.energy_lvl}
-        />
-      )
+      let users = this.state.users.map(user => {
+        if (review.user_id == user.id) {
+          email = user.email
+          }
+        })
+          return(
+            <ReviewTile
+              key={review.id}
+              body={review.body}
+              userEmail={email}
+              kid_friendly={review.kid_friendly}
+              dog_friendly={review.dog_friendly}
+              barking_lvl={review.barking_lvl}
+              trainability={review.trainability}
+              energy_lvl={review.energy_lvl}
+            />
+          )
+
     })
     return(
       <div className="columns medium-10">
