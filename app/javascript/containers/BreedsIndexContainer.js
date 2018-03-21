@@ -55,7 +55,6 @@ class BreedsIndexContainer extends Component {
     )
     this.setState({breeds: results})
   }
-
   render() {
     let breedsPerPage = this.state.breedsPerPage
     let lastIndex = this.state.currentPage * breedsPerPage
@@ -80,7 +79,7 @@ class BreedsIndexContainer extends Component {
       return (
         <a onClick={this.handleClick}>
           <ul key={number} id={number}>
-          {number}
+            {number}
           </ul>
         </a>
       );
