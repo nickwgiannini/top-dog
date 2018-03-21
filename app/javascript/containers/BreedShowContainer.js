@@ -91,15 +91,7 @@ class BreedShowContainer extends Component {
     let message = this.state.messages[0]
     let reviews = this.state.reviews.map(review => {
       return(
-        <ReviewTile
-        key={review.id}
-        body={review.body}
-        kid_friendly={review.kid_friendly}
-        dog_friendly={review.dog_friendly}
-        barking_lvl={review.barking_lvl}
-        trainability={review.trainability}
-        energy_lvl={review.energy_lvl}
-        />
+        <ReviewTile review = {review}/>
       )
     })
     return(
