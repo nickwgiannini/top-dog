@@ -7,6 +7,7 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
     let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
     it "should return all breeds" do
+      sign_in
       get :index
       returned_json = JSON.parse(response.body)
 
@@ -22,6 +23,7 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
     let!(:review) { FactoryBot.create(:review, breed: breed) }
 
     it "should return one breed and relevant reviews" do
+      sign_in
       get :show, params: {id: breed.id, reviews: review}
       returned_json = JSON.parse(response.body)
 
