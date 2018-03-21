@@ -66,7 +66,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json).to be_kind_of(Hash)
       expect(returned_json['review']['breed_id']).to eq breed.id
       expect(returned_json['review']['kid_friendly']).to eq 10
-      expect(returned_json['user']['username']).to eq user.username
     end
   end
 end
