@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import {Router, browserHistory, Route, IndexRoute} from 'react-router'
 import BackButton from '../components/BackButton'
 import BreedIndexTile from '../components/BreedIndexTile'
+import SearchBarContainer from './SearchBarContainer'
 
 class BreedsIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       breeds: [],
+      searchResults: []
     }
+    this.searchBreeds = this.searchBreeds.bind(this)
   }
   componentDidMount () {
     fetch('/api/v1/breeds', {
@@ -30,6 +33,22 @@ class BreedsIndexContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
+  searchBreeds(submission) {
+    let breeds = this.state.breeds
+    let search = submission
+    let results = breeds.filter(breed =>
+      breed.name.toLowerCase().includes(search.toLowerCase()) ||
+      breed.personality.toLowerCase().includes(search.toLowerCase()) ||
+      breed.life_expectancy.toLowerCase().includes(search.toLowerCase()) ||
+      breed.height.toLowerCase().includes(search.toLowerCase()) ||
+      breed.weight.toLowerCase().includes(search.toLowerCase()) ||
+      breed.shedding.toLowerCase().includes(search.toLowerCase()) ||
+      breed.grooming.toLowerCase().includes(search.toLowerCase())
+    )
+    this.setState({breeds: results})
+  }
+
   render() {
     let breeds = this.state.breeds.map(breed => {
       return(
@@ -42,12 +61,15 @@ class BreedsIndexContainer extends Component {
       )
     })
     return (
-
-          <div className="featured-image-block-grid">
-            <div className="row large-up-4 small-up-2">
-              {breeds}
-            </div>
-          </div>
+      <div className="featured-image-block-grid">
+        <div className="row large-up-4 small-up-2">
+          <SearchBarContainer
+            beers={this.state.beers}
+            searchBreeds={this.searchBreeds}
+          />
+          {breeds}
+        </div>
+      </div>
     )
   }
 }
