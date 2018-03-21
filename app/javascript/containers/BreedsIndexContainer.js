@@ -62,7 +62,6 @@ class BreedsIndexContainer extends Component {
     let firstIndex = lastIndex - breedsPerPage
     let displayBreeds = this.state.breeds.slice(firstIndex, lastIndex)
 
-
     let breeds = displayBreeds.map(breed => {
       return(
         <BreedIndexTile
@@ -80,10 +79,7 @@ class BreedsIndexContainer extends Component {
     let pages = pageNumbers.map(number => {
       return (
         <a onClick={this.handleClick}>
-          <ul
-            key={number}
-            id={number}
-          >
+          <ul key={number} id={number}>
           {number}
           </ul>
         </a>
