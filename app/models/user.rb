@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :email, :encrypted_password
+
+  mount_uploader :avatar, AvatarUploader
 end

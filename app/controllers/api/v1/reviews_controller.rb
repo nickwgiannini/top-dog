@@ -12,11 +12,11 @@ class Api::V1::ReviewsController < ApiController
 
   def create
     @review = Review.new(review_params)
-    current_user
+    @review.user = current_user
     if @review.save
-      render json: { status: 'Success', message: 'Saved new review', review: @review, user: current_user }, status: :ok
+      render json: { messages: ["Saved new review"], reviews: Review.all }
     else
-      render json: { status: 'Error', message: 'There was an error', review: @review}, status: :ok
+      render json: { messages: @review.errors.full_messages }
     end
   end
 

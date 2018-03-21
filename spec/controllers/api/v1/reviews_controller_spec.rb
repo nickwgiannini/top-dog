@@ -5,7 +5,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     let!(:review) { FactoryBot.create(:review, user: user, breed: breed) }
 
     it 'returns a list of all the reviews' do
-      sign_in
+
+      sign_in user
       get :index, params: { breed: breed }
       returned_json = JSON.parse(response.body)
       expect(response.status).to eq 200
@@ -30,7 +31,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
 
     it "should create one review for the relevant breed" do
-      sign_in
+
+      sign_in user
       post_json = JSON.parse review.to_json
       params = {
         review: post_json
@@ -40,7 +42,8 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(2)
     end
     it 'should have errors when creating wrong' do
-      sign_in
+
+      sign_in user
       post_json = JSON.parse review_with_errors.to_json
       params = {
         review: post_json
@@ -57,15 +60,16 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response).to redirect_to(new_user_session_path)
     end
     it 'should the newly posted review and user' do
-      sign_in
+
+      sign_in user
       post_json = JSON.parse review.to_json
       post(:create, params: { review: post_json })
       returned_json = JSON.parse(response.body)
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
       expect(returned_json).to be_kind_of(Hash)
-      expect(returned_json['review']['breed_id']).to eq breed.id
-      expect(returned_json['review']['kid_friendly']).to eq 10
+      expect(returned_json["reviews"].first['breed_id']).to eq 7
+      expect(returned_json["reviews"].first['kid_friendly']).to eq 10
     end
   end
 end
