@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     u = User.new
-    u.avatar = params[:file] 
+    u.avatar = params[:file]
   end
 
   def show
