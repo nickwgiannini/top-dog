@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'profile photo' do
@@ -12,7 +12,7 @@ feature 'profile photo' do
                 "#{Rails.root}/spec/support/images/IMG_3327.jpg"
     click_button 'Sign up'
 
-    expect(page).to have_content("Welcome! You have signed up successfully.")
+    expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 end
 
