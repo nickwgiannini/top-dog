@@ -91,6 +91,7 @@ class BreedShowContainer extends Component {
   }
 
   render() {
+    console.log(this.state)
     let email;
     let avatar;
     let message = this.state.messages[0]

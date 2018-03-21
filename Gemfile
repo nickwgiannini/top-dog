@@ -33,6 +33,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails", :require => false
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -61,3 +62,4 @@ gem 'devise'
 gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.3.1'
 gem 'carrierwave', '~> 1.0'
+gem 'fog'
