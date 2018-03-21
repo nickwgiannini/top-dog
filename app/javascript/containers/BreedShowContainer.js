@@ -32,7 +32,6 @@ class BreedShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       let breed = body.breed
       let reviews = body.reviews
       let length = body.length
