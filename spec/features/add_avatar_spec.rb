@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 feature 'profile photo' do
@@ -26,7 +27,7 @@ feature 'edit profile photo' do
                 "#{Rails.root}/spec/support/images/IMG_3327.jpg"
     click_button 'Sign up'
 
-    expect(page).to have_text("Welcome! You have signed up successfully.")
+    expect(page).to have_text('Welcome! You have signed up successfully.')
 
     click_on 'Edit Profile'
     attach_file 'Profile Picture',
@@ -34,6 +35,6 @@ feature 'edit profile photo' do
     fill_in 'Current password', with: 'boomstick!3vilisd3ad'
     click_on 'Update'
 
-    expect(page).to have_content("Your account has been updated successfully.")
+    expect(page).to have_content('Your account has been updated successfully.')
   end
 end
