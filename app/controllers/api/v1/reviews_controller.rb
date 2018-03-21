@@ -1,4 +1,5 @@
 class Api::V1::ReviewsController < ApiController
+  before_action :authenticate_user!
   def index
     reviews = Review.all
     render json: reviews
@@ -11,10 +12,10 @@ class Api::V1::ReviewsController < ApiController
 
   def create
     @review = Review.new(review_params)
-    @current_user = User.find(params[:review][:user_id])
-    @review.user = current_user
+
+    current_user
     if @review.save
-      render json: { status: 'Success', message: 'Saved new review', review: @review }, status: :ok
+      render json: { status: 'Success', message: 'Saved new review', review: @review, user: current_user }, status: :ok
     else
       render json: { status: 'Error', message: 'There was an error', review: @review}, status: :ok
     end
