@@ -1,5 +1,6 @@
 class Api::V1::ReviewsController < ApiController
   before_action :authenticate_user!
+
   def index
     reviews = Review.all
     render json: reviews
@@ -12,7 +13,6 @@ class Api::V1::ReviewsController < ApiController
 
   def create
     @review = Review.new(review_params)
-
     current_user
     if @review.save
       render json: { status: 'Success', message: 'Saved new review', review: @review, user: current_user }, status: :ok
@@ -31,6 +31,6 @@ class Api::V1::ReviewsController < ApiController
   private
 
   def review_params
-    params.require(:review).permit(:breed_id, :user_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl)
+    params.require(:review).permit(:breed_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl, :body)
   end
 end

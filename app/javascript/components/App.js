@@ -2,6 +2,7 @@ import React from 'react';
 import {Router,browserHistory, Route, IndexRoute} from 'react-router'
 import BreedsIndexContainer from '../containers/BreedsIndexContainer';
 import BreedShowContainer from '../containers/BreedShowContainer';
+import ReviewFormContainer from '../containers/ReviewFormContainer';
 
 
 const App = props => {

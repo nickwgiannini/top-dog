@@ -15,7 +15,9 @@ describe('BreedShowContainer', () => {
     it('should have the specified initial state', () => {
       expect(wrapper.state()).toEqual({
         breed : {},
-        reviews: []
+        reviews: [],
+        messages: [],
+        length: 0
       });
     })
 
