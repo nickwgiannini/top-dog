@@ -1,5 +1,6 @@
 class Api::V1::BreedsController < ApiController
  skip_before_action :verify_authenticity_token
+
   def index
     render json: {breeds: Breed.all}
   end
