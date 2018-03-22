@@ -8,5 +8,6 @@ FactoryBot.define do
     weight "9 - 16 pounds"
     grooming "Daily brushing"
     img_url "http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12224359/Shih-Tzu-Care.jpg"
+    user
   end
 end

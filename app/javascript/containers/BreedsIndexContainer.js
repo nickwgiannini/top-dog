@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Router, browserHistory, Route, IndexRoute} from 'react-router'
+import {Router, browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BackButton from '../components/BackButton'
 import BreedIndexTile from '../components/BreedIndexTile'
 import SearchBarContainer from './SearchBarContainer'
+import BreedFormContainer from './BreedFormContainer';
 
 class BreedsIndexContainer extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class BreedsIndexContainer extends Component {
     }
     this.searchBreeds = this.searchBreeds.bind(this)
     this.handleClick = this.handleClick.bind(this)
+
   }
   handleClick(event) {
       this.setState({
@@ -55,7 +57,10 @@ class BreedsIndexContainer extends Component {
     )
     this.setState({breeds: results})
   }
+
+
   render() {
+
     let breedsPerPage = this.state.breedsPerPage
     let lastIndex = this.state.currentPage * breedsPerPage
     let firstIndex = lastIndex - breedsPerPage
@@ -71,6 +76,7 @@ class BreedsIndexContainer extends Component {
         />
       )
     })
+
     let pageNumbers = []
     for (let i = 1; i <= Math.ceil(this.state.breeds.length / breedsPerPage); i++) {
           pageNumbers.push(i);
@@ -81,6 +87,7 @@ class BreedsIndexContainer extends Component {
           <ul key={number} id={number}>
             {number}
           </ul>
+
         </a>
       );
     })
@@ -94,6 +101,7 @@ class BreedsIndexContainer extends Component {
           {breeds}
         </div>
         {pages}
+        <Link to={'/breeds/new'}>Add a Breed</Link>
       </div>
     )
   }

@@ -14,13 +14,14 @@ class BreedShowContainer extends Component {
       users: [],
       length: 0,
     }
-    this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
     this.addNewReview = this.addNewReview.bind(this)
   }
 
   getBreedInfo(breedId) {
-    fetch(`/api/v1/breeds/${breedId}`)
+    fetch(`/api/v1/breeds/${breedId}`, {
+    credentials: 'same-origin'
+  })
     .then(response => {
       if (response.ok) {
         return response;
@@ -53,14 +54,6 @@ class BreedShowContainer extends Component {
   componentWillReceiveProps(nextProps){
     if (nextProps.params.id !== this.props.params.id) {
       this.getBreedInfo(nextProps.params.id)
-    }
-  }
-
-  next(x) {
-    if (x <= this.state.length) {
-      this.setState({
-        next: "Next",
-      });
     }
   }
 
