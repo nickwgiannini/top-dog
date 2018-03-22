@@ -14,7 +14,7 @@ const ReviewTile = (props) => {
       <li>Energy Level: {props.energy_lvl}</li>
       <p>{props.body}</p>
       <div className="VotesContainer">
-        <VotesContainer ReviewID= {props.review.id}/>
+        <VotesContainer ReviewID= {props.reviewID}/>
       </div>
     </div>
   )}
