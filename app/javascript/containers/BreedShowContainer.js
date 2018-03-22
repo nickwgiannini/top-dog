@@ -94,10 +94,12 @@ class BreedShowContainer extends Component {
     let email;
     let avatar;
     let message = this.state.messages[0]
+    console.log(message)
     let reviews = this.state.reviews.map(review => {
       let users = this.state.users.map(user => {
         if (review.user_id == user.id) {
           email = user.email
+          avatar = user.avatar.url
         }
       })
       return(
@@ -105,6 +107,7 @@ class BreedShowContainer extends Component {
          review ={review}
          key={review.id}
          body={review.body}
+         avatar={avatar}
          userEmail={email}
          kid_friendly={review.kid_friendly}
          dog_friendly={review.dog_friendly}
