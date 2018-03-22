@@ -38,7 +38,7 @@
     "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
   },
   "engines": {
-      "node": ">=6.0.0",
-      "yarn": ">=0.25.2"
-    }
+    "node": ">=6.0.0",
+    "yarn": ">=0.25.2"
   }
+}
