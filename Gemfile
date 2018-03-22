@@ -5,11 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-<<<<<<< HEAD
-ruby '2.4.2'
-=======
 ruby '2.3.3'
->>>>>>> 5e72e96ed4125ca463204c8435d7d3af15dc8ebc
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
