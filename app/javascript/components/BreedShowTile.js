@@ -10,7 +10,7 @@ return(
   </div>
   <div className="columns medium-5">
     <h2 className="work-feature-block-header">{props.data.name}</h2>
-    <p> {props.data.personality} doggo.</p>
+    <p> {props.data.personality}</p>
     <h2>Stats</h2>
     <ul>
       <li>Shedding: {props.data.shedding}</li>
