@@ -12,15 +12,18 @@ class BreedShowContainer extends Component {
       reviews: [],
       messages: [],
       users: [],
-      length: 0,
+      length: 0
     }
-    this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
     this.addNewReview = this.addNewReview.bind(this)
+    this.deleteBreed = this.deleteBreed.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   getBreedInfo(breedId) {
-    fetch(`/api/v1/breeds/${breedId}`)
+    fetch(`/api/v1/breeds/${breedId}`, {
+    credentials: 'same-origin'
+  })
     .then(response => {
       if (response.ok) {
         return response;
@@ -56,14 +59,6 @@ class BreedShowContainer extends Component {
     }
   }
 
-  next(x) {
-    if (x <= this.state.length) {
-      this.setState({
-        next: "Next",
-      });
-    }
-  }
-
   addNewReview(submission){
     fetch(`/api/v1/reviews`, {
       credentials: 'same-origin',
@@ -90,6 +85,32 @@ class BreedShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  handleDelete(event) {
+    event.preventDefault();
+      this.deleteBreed()
+  }
+
+  deleteBreed() {
+    let id = this.props.params.id
+    fetch(`/api/v1/breeds/${id}`, {
+      method: 'DELETE',
+      credentials: 'same-origin'
+    }).then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+          let error = new Error(errorMessage)
+          throw(error)
+        }
+      }
+    )
+    .then(body => {
+      browserHistory.push('/breeds')
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   render() {
     let email;
     let avatar;
@@ -97,7 +118,9 @@ class BreedShowContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       let users = this.state.users.map(user => {
         if (review.user_id == user.id) {
+          debugger
           email = user.email
+          avatar = user.avatar.url
         }
       })
       return(
@@ -105,6 +128,7 @@ class BreedShowContainer extends Component {
          review ={review}
          key={review.id}
          body={review.body}
+         avatar={avatar}
          userEmail={email}
          kid_friendly={review.kid_friendly}
          dog_friendly={review.dog_friendly}
@@ -113,15 +137,15 @@ class BreedShowContainer extends Component {
          energy_lvl={review.energy_lvl}
        />
       )
-
     })
     return(
       <div className="columns medium-10">
         <h1>Doggy Details</h1>
         <BreedShowTile
           data={this.state.breed}
+          onDeleteClick={this.handleDelete}
         />
-        <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link> | <Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
+        <ul><Link className="picture-buttons" to={`/breeds/${this.state.breed.id-1}`}>Previous Dog</Link> | <Link className="picture-buttons" to={`/breeds/${this.state.breed.id+1}`}>Next Dog</Link></ul>
         <h2> Reviews: </h2>
         {reviews}
         <ReviewFormContainer
