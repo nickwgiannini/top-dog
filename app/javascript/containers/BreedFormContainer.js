@@ -152,12 +152,12 @@ class BreedFormContainer extends Component {
   }
 
   render() {
-    let errors = []
-    if (this.state.errors.length > 0){
-       errors = this.state.errors.map(error => {
-        <p>{error}</p>
-      })
-    }
+    // let errors = []
+    // if (this.state.errors.length > 0){
+    //    errors = this.state.errors.map(error => {
+    //     <p>{error}</p>
+    //   })
+    // }
     return(
       <div>
         {this.state.errors}
