@@ -69,7 +69,7 @@ class BreedShowContainer extends Component {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(submission),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     })
     .then (response => {
       if (response.ok) {
@@ -102,15 +102,16 @@ class BreedShowContainer extends Component {
       })
       return(
         <ReviewTile
-          key={review.id}
-          body={review.body}
-          userEmail={email}
-          kid_friendly={review.kid_friendly}
-          dog_friendly={review.dog_friendly}
-          barking_lvl={review.barking_lvl}
-          trainability={review.trainability}
-          energy_lvl={review.energy_lvl}
-        />
+         review ={review}
+         key={review.id}
+         body={review.body}
+         userEmail={email}
+         kid_friendly={review.kid_friendly}
+         dog_friendly={review.dog_friendly}
+         barking_lvl={review.barking_lvl}
+         trainability={review.trainability}
+         energy_lvl={review.energy_lvl}
+       />
       )
 
     })

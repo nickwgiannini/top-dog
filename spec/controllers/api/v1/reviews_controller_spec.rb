@@ -21,7 +21,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json[0]['energy_lvl']).to eq 7
     end
   end
-
   describe "POST#create" do
     let!(:user) { FactoryBot.create(:user) }
     let!(:breed) { FactoryBot.create(:breed) }

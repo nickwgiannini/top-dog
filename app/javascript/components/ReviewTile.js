@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import VotesContainer from '../containers/VotesContainer'
 
 const ReviewTile = (props) => {
   return(
@@ -12,6 +13,9 @@ const ReviewTile = (props) => {
       <li>Trainability: {props.trainability}</li>
       <li>Energy Level: {props.energy_lvl}</li>
       <p>{props.body}</p>
+      <div className="VotesContainer">
+        <VotesContainer ReviewID= {props.reviewID}/>
+      </div>
     </div>
   )}
 
