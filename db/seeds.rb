@@ -198,5 +198,5 @@ b1 = Breed.create(
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12223439/Toy-Fox-Terrier-Care.jpg',
 )
-u1 = User.create(email: "asd@gmail.com", encrypted_password: "fsrtdr", password: "fsrtdr", sign_in_count: 1, created_at: Time.now, updated_at: Time.now )
+u1 = User.create(email: "asd@gmail.com", encrypted_password: "fsrtdr", password: "fsrtdr", sign_in_count: 1, created_at: Time.now, updated_at: Time.now, admin: true )
 r1 = Review.create(breed: b1, user: u1, kid_friendly: 6, dog_friendly: 9, barking_lvl: 3, trainability: 8, energy_lvl: 6, body: "great dog")

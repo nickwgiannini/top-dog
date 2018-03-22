@@ -21,7 +21,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json[0]['energy_lvl']).to eq 7
     end
   end
-
   describe "POST#create" do
     let!(:user) { FactoryBot.create(:user) }
     let!(:breed) { FactoryBot.create(:breed) }
@@ -52,12 +51,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(review_count)
       expect(review_with_errors.errors.messages[:kid_friendly].first).to eq "is not included in the list"
     end
-    it 'should have allow to post, if not signed in' do
-      sign_in nil
-      post_json = JSON.parse review.to_json
-      post(:create, params: { review: post_json })
-      expect(response).to redirect_to(new_user_session_path)
-    end
+
     it 'should the newly posted review and user' do
       sign_in user
       post_json = JSON.parse review.to_json

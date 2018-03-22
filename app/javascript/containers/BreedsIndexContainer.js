@@ -83,14 +83,17 @@ class BreedsIndexContainer extends Component {
         }
     let pages = pageNumbers.map(number => {
       return (
+      <div id="page-numbers">
         <a onClick={this.handleClick}>
           <ul key={number} id={number}>
-            {number}
+            || {number} ||
           </ul>
 
         </a>
+      </div>
       );
     })
+
     return (
       <div className="featured-image-block-grid">
         <div className="row large-up-4 small-up-2">
