@@ -6,7 +6,7 @@ const ReviewTile = (props) => {
   return(
     <div className="callout">
       <h1>{props.userEmail}</h1>
-      <img src="{props.avatar}" alt='profile picture'></img>
+      <img src={props.avatar} alt='profile picture'></img>
       <li>Kid-Friendly: {props.kid_friendly}</li>
       <li>Dog-Friendly: {props.dog_friendly}</li>
       <li>Barking Level: {props.barking_lvl}</li>
