@@ -11,7 +11,7 @@ class BreedsIndexContainer extends Component {
       breeds: [],
       searchResults: [],
       breedsPerPage: 4,
-      currentPage: 1,
+      currentPage: 1
     }
     this.searchBreeds = this.searchBreeds.bind(this)
     this.handleClick = this.handleClick.bind(this)

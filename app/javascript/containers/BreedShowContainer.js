@@ -12,7 +12,7 @@ class BreedShowContainer extends Component {
       reviews: [],
       messages: [],
       users: [],
-      length: 0,
+      length: 0
     }
     this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
