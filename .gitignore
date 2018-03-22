@@ -25,3 +25,4 @@ yarn-debug.log*
 .env
 package-lock.json
 packs/.DS_store
+/public/uploads
