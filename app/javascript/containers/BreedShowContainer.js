@@ -101,8 +101,7 @@ class BreedShowContainer extends Component {
     let id = this.props.params.id
     fetch(`/api/v1/breeds/${id}`, {
       method: 'DELETE',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' }
+      credentials: 'same-origin'
     }).then(response => {
         if (response.ok) {
           return response
@@ -113,7 +112,9 @@ class BreedShowContainer extends Component {
         }
       }
     )
-    .then(response => response.json())
+    .then(body => {
+      browserHistory.push('/breeds')
+    })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 

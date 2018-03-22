@@ -21,7 +21,6 @@ class Api::V1::BreedsController < ApiController
       @breed.destroy
       flash[:success]= "Deleted breed"
     else
-      render :show
       flash[:error]= "Only Admins can delete dogs."
     end
   end
