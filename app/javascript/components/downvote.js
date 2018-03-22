@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Downvote = props => {
-  onClick = props.handleClick(-1)
+  onClickHandler = props.handleClick(-1)
   return(
-      <i class="fas fa-arrow-down" onClick= {onClick}></i>
+      <i class="fas fa-arrow-down" onClick= {onClickHandler}></i>
   )
 }
 
