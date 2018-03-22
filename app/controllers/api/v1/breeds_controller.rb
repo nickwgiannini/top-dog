@@ -12,12 +12,18 @@ class Api::V1::BreedsController < ApiController
     reviews.each do |review|
       users << review.user
     end
-    render json: { breed: breed, reviews: reviews, users: users }
+    render json: { breed: breed, reviews: reviews, users: users}
   end
 
-  private
-
-  def breed_params
-    params.require(:breed).permit(:name, :life_expectancy, :personality, :shedding, :height, :weight, :grooming, :img_url)
+  def destroy
+    if current_user.admin?
+      @breed = Breed.find(params[:id])
+      @breed.destroy
+      flash[:success]= "Deleted breed"
+    else
+      render :show
+      flash[:error]= "Only Admins can delete dogs."
+    end
   end
+
 end

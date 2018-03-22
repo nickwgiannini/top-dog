@@ -20,13 +20,6 @@ class Api::V1::ReviewsController < ApiController
     end
   end
 
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-
-    redirect_to breeds_path
-  end
-
   private
 
   def review_params
