@@ -152,7 +152,7 @@ class BreedShowContainer extends Component {
           data={this.state.breed}
           onDeleteClick={this.handleDelete}
         />
-        <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link> | <Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
+        <ul><Link className="picture-buttons" to={`/breeds/${this.state.breed.id-1}`}>Previous Dog</Link> | <Link className="picture-buttons" to={`/breeds/${this.state.breed.id+1}`}>Next Dog</Link></ul>
         <h2> Reviews: </h2>
         {reviews}
         <ReviewFormContainer
