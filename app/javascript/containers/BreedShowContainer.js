@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Router,browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
-import ReviewFormContainer from './ReviewFormContainer';
+
 
 class BreedShowContainer extends Component {
   constructor(props) {
@@ -118,7 +118,6 @@ class BreedShowContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       let users = this.state.users.map(user => {
         if (review.user_id == user.id) {
-          debugger
           email = user.email
           avatar = user.avatar.url
         }

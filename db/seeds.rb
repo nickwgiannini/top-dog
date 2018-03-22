@@ -9,6 +9,7 @@ Breed.delete_all
 Review.delete_all
 User.delete_all
 
+u1 = User.create(email: "asd@gmail.com", encrypted_password: "fsrtdr", password: "fsrtdr", sign_in_count: 1, created_at: Time.now, updated_at: Time.now, admin: true )
 Breed.create(name: 'Affenpinscher',
   life_expectancy:'12-15 years',
   personality:'confident, famously funny, fearless',
@@ -17,6 +18,7 @@ Breed.create(name: 'Affenpinscher',
   weight:'7-10 pounds',
   grooming:'2-3 times a week brushing',
   img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13002132/Affenpinscher-Care.jpg',
+  user: u1
   )
 Breed.create(
  name: 'Brussels Griffon',
@@ -27,6 +29,7 @@ Breed.create(
  weight:'8-10 pounds',
  grooming:'2-3 times a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213537/Brussels-Griffith-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Cavalier King Charles Spaniel',
@@ -37,6 +40,7 @@ Breed.create(
  weight:'13-18 pounds',
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234930/Cavalier-King-Charles-Spaniel-MP.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Chihuahua',
@@ -47,6 +51,7 @@ Breed.create(
  weight:'does not exceed 6 lbs',
  grooming:'occasional bath/brush',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234721/Chihuahua-MP.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Chinese Crested',
@@ -57,6 +62,7 @@ Breed.create(
  weight:'8-12 pounds',
  grooming:'occasional bath/brush',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234701/Chinese-Crested-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'English Toy Spaniel',
@@ -67,6 +73,7 @@ Breed.create(
  weight:'8-14 pounds',
  grooming:'2-3 times a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12233529/English-Toy-Spaniel-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Havanese',
@@ -77,6 +84,7 @@ Breed.create(
  weight:'7-13 pounds',
  grooming:'2-3 times a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213608/Havanese-800x600.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Italian Grey Hound',
@@ -87,6 +95,7 @@ Breed.create(
  weight:'7-14 pounds',
  grooming:'occasional bath/brush',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231830/Italian-Greyhound-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Japanese Chin',
@@ -97,6 +106,7 @@ Breed.create(
  weight:'7-11 pounds',
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231733/Japanese-Chin-MP.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Maltese',
@@ -107,6 +117,7 @@ Breed.create(
  weight:'under 7 pounds',
  grooming:'daily brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231045/Maltese-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Miniature Affenpinscher',
@@ -117,6 +128,7 @@ Breed.create(
  weight:'8-10 pounds',
  grooming:'occasion bath/brush',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12230745/Miniature-Pinscher-MP.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Papillon',
@@ -127,6 +139,7 @@ Breed.create(
  weight:'5-10 pounds',
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12230044/Papillon-MP.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Pekingese',
@@ -137,6 +150,7 @@ Breed.create(
  weight:'up to 14 pounds',
  grooming:'2-3 a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213908/Pekingnese-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Pomeranian',
@@ -147,6 +161,7 @@ Breed.create(
  weight:'3-7 pounds',
  grooming:'2-3 times a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225653/Pomeranian-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Pug',
@@ -157,6 +172,7 @@ Breed.create(
  weight:'14-18 pounds',
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225427/Pug-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Shih Tzu',
@@ -167,6 +183,7 @@ Breed.create(
  weight:'9-16 pounds',
  grooming:'daily brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12224359/Shih-Tzu-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Silky Terrier',
@@ -177,6 +194,7 @@ Breed.create(
  weight:'around 10 pounds',
  grooming:'2-3 times a week brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12224155/Silky-Terrier-Care.jpg',
+ user: u1
 )
 Breed.create(
  name: 'Yorkshire Terrier',
@@ -187,6 +205,7 @@ Breed.create(
  weight:'7 pounds',
  grooming:'specialty/proffesional',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12222717/Yorkshire-Terrier-Care.jpg',
+ user: u1
 )
 b1 = Breed.create(
  name: 'Toy Fox Terrier',
@@ -197,6 +216,7 @@ b1 = Breed.create(
  weight:'3.5-7 pounds',
  grooming:'weekly brushing',
  img_url:'http://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12223439/Toy-Fox-Terrier-Care.jpg',
+ user: u1
 )
-u1 = User.create(email: "asd@gmail.com", encrypted_password: "fsrtdr", password: "fsrtdr", sign_in_count: 1, created_at: Time.now, updated_at: Time.now, admin: true )
+
 r1 = Review.create(breed: b1, user: u1, kid_friendly: 6, dog_friendly: 9, barking_lvl: 3, trainability: 8, energy_lvl: 6, body: "great dog")
