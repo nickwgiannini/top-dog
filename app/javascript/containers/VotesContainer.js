@@ -43,8 +43,8 @@ class VotesContainer extends Component {
   }
     return (
       <div className= "vote-options">
-        <div className={upvote}><Upvote handleClick = {this.handleVoteSelect}/></div>
-        <div className={downvote}><Downvote handleClick = {this.handleVoteSelect}/></div>
+        <div className={this.upvote}><Upvote handleClick = {this.handleVoteSelect}/></div>
+        <div className={this.downvote}><Downvote handleClick = {this.handleVoteSelect}/></div>
       </div>
     );
   }
