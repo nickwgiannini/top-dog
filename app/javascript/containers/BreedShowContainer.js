@@ -94,7 +94,6 @@ class BreedShowContainer extends Component {
     let email;
     let avatar;
     let message = this.state.messages[0]
-    console.log(message)
     let reviews = this.state.reviews.map(review => {
       let users = this.state.users.map(user => {
         if (review.user_id == user.id) {
