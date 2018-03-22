@@ -52,12 +52,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(review_count)
       expect(review_with_errors.errors.messages[:kid_friendly].first).to eq "is not included in the list"
     end
-    it 'should have allow to post, if not signed in' do
-      sign_in nil
-      post_json = JSON.parse review.to_json
-      post(:create, params: { review: post_json })
-      expect(response).to redirect_to(new_user_session_path)
-    end
+
     it 'should the newly posted review and user' do
 
       sign_in user
@@ -67,7 +62,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
       expect(returned_json).to be_kind_of(Hash)
-      expect(returned_json["reviews"].first['breed_id']).to eq 7
+      expect(returned_json["reviews"].first['breed_id']).to eq 6
       expect(returned_json["reviews"].first['kid_friendly']).to eq 10
     end
   end

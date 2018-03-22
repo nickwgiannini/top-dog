@@ -14,16 +14,12 @@ class Api::V1::ReviewsController < ApiController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    if current_user
       if @review.save
         render json: { messages: ["Saved new review"], reviews: Review.all }
       else
         render json: { messages: @review.errors.full_messages }
       end
-    else
-      redirect_to new_user_session_path
-    end
-  end
+   end
 
   private
 
