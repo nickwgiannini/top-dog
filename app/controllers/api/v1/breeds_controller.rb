@@ -39,10 +39,10 @@ class Api::V1::BreedsController < ApiController
       flash[:error]= "Only Admins can delete dogs."
     end
 
-  private
+    private
 
-  def breed_params
-    params.require(:breed).permit(:name, :life_expectancy, :personality, :shedding, :height, :weight, :grooming, :img_url)
-
+    def breed_params
+      params.require(:breed).permit(:name, :life_expectancy, :personality, :shedding, :height, :weight, :grooming, :img_url)
+    end
   end
 end
