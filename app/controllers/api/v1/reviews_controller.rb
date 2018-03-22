@@ -1,5 +1,6 @@
 class Api::V1::ReviewsController < ApiController
   before_action :authenticate_user!
+  protect_from_forgery unless: -> { request.format.json? }
   def index
     reviews = Review.all
     render json: reviews
@@ -30,6 +31,6 @@ class Api::V1::ReviewsController < ApiController
   private
 
   def review_params
-    params.require(:review).permit(:breed_id, :user_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl)
+    params.require(:review).permit(:breed_id, :kid_friendly, :dog_friendly, :barking_lvl, :trainability, :energy_lvl, :body)
   end
 end

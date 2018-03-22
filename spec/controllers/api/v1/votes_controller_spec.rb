@@ -14,9 +14,9 @@ RSpec.describe Api::V1::VotesController, type: :controller do
       expect(response.content_type).to eq('application/json')
 
       expect(returned_json.length).to eq 1
-      expect(returned_json[0]['user_id']).to eq user.id
-      expect(returned_json[0]['review_id']).to eq review.id
-      expect(returned_json[0]['value']).to eq -1
+      expect(returned_json.first['user_id']).to eq user.id
+      expect(returned_json.first['review_id']).to eq review.id
+      expect(returned_json.first['value']).to eq (- 1)
     end
   end
 
@@ -28,7 +28,6 @@ RSpec.describe Api::V1::VotesController, type: :controller do
 
     it 'returns a specified vote' do
       get :show, params: { id: vote.id }
-
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
@@ -48,6 +47,7 @@ RSpec.describe Api::V1::VotesController, type: :controller do
     let!(:second_vote) { FactoryBot.create(:vote, user: user, review: review, value: -1) }
 
     it "should create one vote for the relevant review" do
+      sign_in user
       post_json = JSON.parse first_vote.to_json
       params = {
         vote: post_json
@@ -58,6 +58,7 @@ RSpec.describe Api::V1::VotesController, type: :controller do
     end
 
     it 'should change value when downvoted' do
+      sign_in user
       post_json = JSON.parse first_vote.to_json
       params = {
         vote: post_json
