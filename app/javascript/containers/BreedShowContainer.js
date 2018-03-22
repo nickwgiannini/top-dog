@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Router,browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
+import ReviewFormContainer from '../containers/ReviewFormContainer'
 
 
 class BreedShowContainer extends Component {
