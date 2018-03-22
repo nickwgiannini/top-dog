@@ -12,11 +12,13 @@ class BreedShowContainer extends Component {
       reviews: [],
       messages: [],
       users: [],
-      length: 0,
+      length: 0
     }
     this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
     this.addNewReview = this.addNewReview.bind(this)
+    this.deleteBreed = this.deleteBreed.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   getBreedInfo(breedId) {
@@ -90,6 +92,32 @@ class BreedShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  handleDelete(event) {
+    event.preventDefault();
+      this.deleteBreed()
+  }
+
+  deleteBreed() {
+    let id = this.props.params.id
+    fetch(`/api/v1/breeds/${id}`, {
+      method: 'DELETE',
+      credentials: 'same-origin'
+    }).then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+          let error = new Error(errorMessage)
+          throw(error)
+        }
+      }
+    )
+    .then(body => {
+      browserHistory.push('/breeds')
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   render() {
     let email;
     let avatar;
@@ -113,13 +141,13 @@ class BreedShowContainer extends Component {
          energy_lvl={review.energy_lvl}
        />
       )
-
     })
     return(
       <div className="columns medium-10">
         <h1>Doggy Details</h1>
         <BreedShowTile
           data={this.state.breed}
+          onDeleteClick={this.handleDelete}
         />
         <ul><Link to={`/breeds/${this.state.breed.id-1}`}>Previous</Link> | <Link to={`/breeds/${this.state.breed.id+1}`}>Next</Link></ul>
         <h2> Reviews: </h2>

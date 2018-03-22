@@ -19,6 +19,7 @@ return(
       <li>Weight: {props.data.weight}</li>
       <li>Life Expectancy: {props.data.life_expectancy}</li>
     </ul>
+    <button onClick={props.onDeleteClick}>Delete  <p>(admin only)</p></button>
   </div>
 </div>
 )}
