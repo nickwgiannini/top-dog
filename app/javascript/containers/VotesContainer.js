@@ -13,8 +13,8 @@ class VotesContainer extends Component {
     this.handleVoteSelect = this.handleVoteSelect.bind(this)
   }
   handleVoteSelect(voteValue) {
-    votePayload = {vote: {value: voteValue, review_id: this.props.review.id}}
-    fetch('/api/v1/votes', {
+    let votePayload = {vote: {value: voteValue, review_id: this.props.reviewID}}
+    fetch('/api/v1/', {
     method: 'post',
     body: JSON.stringify(votePayload)
     })

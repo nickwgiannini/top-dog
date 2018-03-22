@@ -82,6 +82,7 @@ class BreedShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      this.componentDidMount()
       this.setState({
         messages: body.messages
       });
@@ -100,7 +101,17 @@ class BreedShowContainer extends Component {
         }
       })
       return(
-        <ReviewTile review = {review}/>
+        <ReviewTile
+         review ={review}
+         key={review.id}
+         body={review.body}
+         userEmail={email}
+         kid_friendly={review.kid_friendly}
+         dog_friendly={review.dog_friendly}
+         barking_lvl={review.barking_lvl}
+         trainability={review.trainability}
+         energy_lvl={review.energy_lvl}
+       />
       )
 
     })

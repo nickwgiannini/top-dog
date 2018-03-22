@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApiController
-  before_action :authenticate_user!
-  protect_from_forgery unless: -> { request.format.json? }
+  skip_before_action :verify_authenticity_token
+
   def index
     reviews = Review.all
     render json: reviews
