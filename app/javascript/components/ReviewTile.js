@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
 import VotesContainer from '../containers/VotesContainer'
-import avatar from '.../top-dog/public/user/avatar'
 
 const ReviewTile = (props) => {
   return(
