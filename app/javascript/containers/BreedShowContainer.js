@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {Router,browserHistory, Route, IndexRoute, Link} from 'react-router'
 import BreedShowTile from '../components/BreedShowTile'
 import ReviewTile from '../components/ReviewTile'
-import ReviewFormContainer from './ReviewFormContainer';
+import ReviewFormContainer from '../containers/ReviewFormContainer'
+
 
 class BreedShowContainer extends Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class BreedShowContainer extends Component {
       users: [],
       length: 0
     }
-    this.next = this.next.bind(this)
     this.getBreedInfo = this.getBreedInfo.bind(this)
     this.addNewReview = this.addNewReview.bind(this)
     this.deleteBreed = this.deleteBreed.bind(this)
@@ -22,7 +22,9 @@ class BreedShowContainer extends Component {
   }
 
   getBreedInfo(breedId) {
-    fetch(`/api/v1/breeds/${breedId}`)
+    fetch(`/api/v1/breeds/${breedId}`, {
+    credentials: 'same-origin'
+  })
     .then(response => {
       if (response.ok) {
         return response;
@@ -55,14 +57,6 @@ class BreedShowContainer extends Component {
   componentWillReceiveProps(nextProps){
     if (nextProps.params.id !== this.props.params.id) {
       this.getBreedInfo(nextProps.params.id)
-    }
-  }
-
-  next(x) {
-    if (x <= this.state.length) {
-      this.setState({
-        next: "Next",
-      });
     }
   }
 

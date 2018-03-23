@@ -41,7 +41,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(Review.count).to eq(2)
     end
     it 'should have errors when creating wrong' do
-
       sign_in user
       post_json = JSON.parse review_with_errors.to_json
       params = {
@@ -54,7 +53,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
 
     it 'should the newly posted review and user' do
-
       sign_in user
       post_json = JSON.parse review.to_json
       post(:create, params: { review: post_json })
@@ -62,7 +60,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
       expect(returned_json).to be_kind_of(Hash)
-      expect(returned_json["reviews"].first['breed_id']).to eq 6
+      expect(returned_json["reviews"].first['breed_id']).to eq breed.id
       expect(returned_json["reviews"].first['kid_friendly']).to eq 10
     end
   end
