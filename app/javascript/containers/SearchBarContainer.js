@@ -46,7 +46,7 @@ class SearchBarContainer extends Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
     return (
-      <form onSubmit={this.handleFormSubmit}>
+      <form id="searchbar" onSubmit={this.handleFormSubmit}>
         {errorDiv}
         <TextField
           content={this.state.searchText}

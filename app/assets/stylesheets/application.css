@@ -36,7 +36,7 @@
        border-style: solid;
        border-width: 0;
        cursor: pointer;
-       font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+       font-family: 'Bree Serif', serif;
        font-weight: normal;
        line-height: normal;
        margin: 0 0 1.25rem;
@@ -70,7 +70,7 @@ body {
     background: #C7C9B1;
     color: #222;
     cursor: auto;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-family: 'Bree Serif', serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1.5;
@@ -97,7 +97,7 @@ a img {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-family: 'Bree Serif', serif;
     font-weight: normal;
     line-height: normal;
     margin: 0 0 1.25rem;
@@ -129,7 +129,7 @@ body {
     background: #C7C9B1;
     color: #453F3B;
     cursor: auto;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-family: 'Bree Serif', serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1.5;
@@ -140,7 +140,6 @@ body {
 h2 {
     font-size: 1.5rem;
     color: #453F3B;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: 1.4;
@@ -210,9 +209,57 @@ button:hover {
     background-color: #111111;
 }
 #avatar{
-    max-width: 10%;
-    height: auto;
-}#pup{
+  border-radius: 10px;
+  max-width: 10%;
+  height: auto;
+}
+
+#pup{
   max-width: 60%;
   height: auto;
+}
+
+#nextprevious {
+  margin: 15px
+}
+
+#reviews {
+  margin-top: 40px;
+  width: 100px;
+  text-align: left
+}
+
+#addreview {
+  margin-left: 0px;
+}
+
+#searchbar {
+  margin: 10px
+}
+
+#delete {
+  padding-bottom: 5px
+}
+
+#doggo {
+  font-family: 'Indie Flower', cursive;
+}
+
+#email {
+  margin: 0px;
+  font-size: 10px;
+  margin-bottom: 5px;
+  font-weight: bold
+}
+
+#addbreed {
+  margin: 20px;
+  background-color: #C6CBB0;
+}
+
+#page-numbers{
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  width: 100%;
 }

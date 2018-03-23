@@ -140,13 +140,13 @@ class BreedShowContainer extends Component {
     })
     return(
       <div className="columns medium-10">
-        <h1>Doggy Details</h1>
+        <h1 id="doggo">Doggy Details</h1>
         <BreedShowTile
           data={this.state.breed}
           onDeleteClick={this.handleDelete}
         />
-        <ul><Link className="picture-buttons" to={`/breeds/${this.state.breed.id-1}`}>Previous Dog</Link> | <Link className="picture-buttons" to={`/breeds/${this.state.breed.id+1}`}>Next Dog</Link></ul>
-        <h2> Reviews: </h2>
+        <ul id="nextprevious"><Link className="picture-buttons" to={`/breeds/${this.state.breed.id-1}`}>Previous Dog</Link> | <Link className="picture-buttons" to={`/breeds/${this.state.breed.id+1}`}>Next Dog</Link></ul>
+        <h2 id="reviews"> Reviews: </h2>
         {reviews}
         <ReviewFormContainer
           id= {this.props.params.id}

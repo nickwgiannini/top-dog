@@ -91,7 +91,7 @@ class ReviewFormContainer extends Component {
   render() {
     return(
       <div>
-        <h1>Add a Review: </h1>
+        <h1 id="addreview">Add a Review: </h1>
         <form className="new-article-form callout" onSubmit={this.handleSubmit}>
 
           <BodyField
@@ -103,7 +103,7 @@ class ReviewFormContainer extends Component {
 
           <KidFriendlyField
             content={this.state.kid_friendly}
-            label = {"Kid Friendliness(1 = dangerous for kids - 10 = perfect with kids):"}
+            label = {"Kid Friendliness(1 = dangerous for kids - 10 = perfect with kids)"}
             handleChange={this.handleKidFriendly}
           />
 
