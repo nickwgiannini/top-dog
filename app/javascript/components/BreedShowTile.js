@@ -6,7 +6,7 @@ const BreedShowTile = (props) => {
 return(
   <div className="work-feature-block row">
   <div className="columns medium-7">
-    <img className="work-feature-block-image" src={props.data.img_url}/>
+    <img id="pup"className="work-feature-block-image" src={props.data.img_url}/>
   </div>
   <div className="columns medium-5">
     <h2 className="work-feature-block-header">{props.data.name}</h2>
