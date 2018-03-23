@@ -23,6 +23,7 @@ class BreedsIndexContainer extends Component {
         currentPage: Number(event.target.id)
       });
     }
+
   componentDidMount () {
     fetch('/api/v1/breeds', {
       credentials: 'same-origin'
@@ -43,6 +44,7 @@ class BreedsIndexContainer extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
   searchBreeds(submission) {
     let breeds = this.state.breeds
     let search = submission
@@ -60,7 +62,7 @@ class BreedsIndexContainer extends Component {
 
 
   render() {
-
+    console.log(this.state)
     let breedsPerPage = this.state.breedsPerPage
     let lastIndex = this.state.currentPage * breedsPerPage
     let firstIndex = lastIndex - breedsPerPage

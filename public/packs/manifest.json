@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "application.js": "/packs/application-4350cdd20b0a11f17918.js",
   "application.js.map": "/packs/application-4350cdd20b0a11f17918.js.map",
 =======
@@ -8,4 +9,10 @@
 >>>>>>> 5e72e96ed4125ca463204c8435d7d3af15dc8ebc
   "hello_react.js": "/packs/hello_react-0a93c16ba75cc8a9a1f5.js",
   "hello_react.js.map": "/packs/hello_react-0a93c16ba75cc8a9a1f5.js.map"
+=======
+  "application.js": "/packs/application-28c21c492976b7351dfd.js",
+  "application.js.map": "/packs/application-28c21c492976b7351dfd.js.map",
+  "hello_react.js": "/packs/hello_react-03005b5b17110d3447e1.js",
+  "hello_react.js.map": "/packs/hello_react-03005b5b17110d3447e1.js.map"
+>>>>>>> fecff7e852548a6f56776ea782b71a682bef996b
 }
