@@ -206,3 +206,13 @@ input[type="text"] {
     -o-transition: border-color 0.15s linear, background 0.15s linear;
     transition: border-color 0.15s linear, background 0.15s linear;
 }
+button:hover {
+    background-color: #111111;
+}
+#avatar{
+    max-width: 10%;
+    height: auto;
+}#pup{
+  max-width: 60%;
+  height: auto;
+}
