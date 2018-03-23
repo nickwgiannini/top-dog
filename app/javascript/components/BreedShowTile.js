@@ -9,7 +9,7 @@ return(
     <img id="pup"className="work-feature-block-image" src={props.data.img_url}/>
   </div>
   <div className="columns medium-5">
-    <h2 className="work-feature-block-header">{props.data.name}</h2>
+    <h2 id="doggo" className="work-feature-block-header">{props.data.name}</h2>
     <p> {props.data.personality}</p>
     <h2>Stats</h2>
     <ul>
@@ -19,7 +19,7 @@ return(
       <li>Weight: {props.data.weight}</li>
       <li>Life Expectancy: {props.data.life_expectancy}</li>
     </ul>
-    <button onClick={props.onDeleteClick}>Delete  <p>(admin only)</p></button>
+    <button id="delete"onClick={props.onDeleteClick}>Delete  <p>(admin only)</p></button>
   </div>
 </div>
 )}

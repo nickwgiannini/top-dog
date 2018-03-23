@@ -19,10 +19,10 @@ class BreedsIndexContainer extends Component {
 
   }
   handleClick(event) {
-      this.setState({
-        currentPage: Number(event.target.id)
-      });
-    }
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
 
   componentDidMount () {
     fetch('/api/v1/breeds', {
@@ -81,18 +81,18 @@ class BreedsIndexContainer extends Component {
 
     let pageNumbers = []
     for (let i = 1; i <= Math.ceil(this.state.breeds.length / breedsPerPage); i++) {
-          pageNumbers.push(i);
-        }
+      pageNumbers.push(i);
+    }
     let pages = pageNumbers.map(number => {
       return (
-      <div id="page-numbers">
-        <a onClick={this.handleClick}>
-          <ul key={number} id={number}>
-            || {number} ||
-          </ul>
+        <div>
+          <a onClick={this.handleClick}>
+            <ul key={number} id={number}>
+              || {number} ||
+            </ul>
 
-        </a>
-      </div>
+          </a>
+        </div>
       );
     })
 
@@ -105,8 +105,10 @@ class BreedsIndexContainer extends Component {
           />
           {breeds}
         </div>
-        {pages}
-        <Link to={'/breeds/new'}>Add a Breed</Link>
+        <div id="page-numbers">
+          {pages}
+        </div>
+        <Link id="addbreed" to={'/breeds/new'}>Add a Breed</Link>
       </div>
     )
   }

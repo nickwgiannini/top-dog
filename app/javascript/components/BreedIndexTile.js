@@ -6,7 +6,7 @@ const BreedIndexTile = (props) => {
     <div className="featured-image-block column">
       <Link to={`/breeds/${props.id}`}>
         <img src={props.img_url} />
-        <p className="text-center featured-image-block-title">{props.name}</p>
+        <p id="doggo" className="text-center featured-image-block-title">{props.name}</p>
       </Link>
   </div>
 )}
