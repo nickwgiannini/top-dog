@@ -38,3 +38,5 @@ $ npm start
 $ rake db:test:prepare
 $ rspec
 ```
+
+Heroku: https://top-dog-group.herokuapp.com/
