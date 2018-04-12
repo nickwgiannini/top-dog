@@ -39,4 +39,4 @@ $ rake db:test:prepare
 $ rspec
 ```
 
-Heroku: https://top-dog-launch.herokuapp.com/
+Heroku: https://top-dog-group.herokuapp.com/
