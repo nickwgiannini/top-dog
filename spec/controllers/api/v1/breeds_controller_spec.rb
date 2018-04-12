@@ -13,7 +13,7 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json['breeds'][0]['user_id']).to eq user.id
+      expect(returned_json['breeds'].length).to eq 1
       expect(returned_json['breeds'][0]['name']).to eq "Shih Tzu"
     end
   end
@@ -33,27 +33,6 @@ RSpec.describe Api::V1::BreedsController, type: :controller do
       expect(returned_json['breed']['name'].length).to eq 8
       expect(returned_json['breed']['name']).to eq "Shih Tzu"
       expect(returned_json['reviews'].count).to eq 1
-    end
-  end
-  describe "POST#create" do
-    let!(:user) { FactoryBot.create(:user) }
-    it "should create a new breed" do
-      params={
-        breed: {
-          name: "Pitbull",
-          life_expectancy: "10 - 12 years",
-          personality: "stubborn, nice, fun-loving",
-          shedding: "none",
-          height: "24 inches",
-          weight: "45 pounds",
-          grooming: "none",
-          img_url: "https://5.imimg.com/data5/GX/VI/MY-1596325/pitbull-dog-breed-250x250.jpg",
-        },
-      }
-
-      post :create, params: params
-      expect(Breed.count).to eq (1)
-      expect(response).to have_http_status :ok
     end
   end
 end
