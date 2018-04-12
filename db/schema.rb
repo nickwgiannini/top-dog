@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180322152752) do
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "thumbs_up_count", default: 0, null: false
+    t.integer "thumbs_down_count", default: 0, null: false
     t.index ["breed_id"], name: "index_reviews_on_breed_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -61,14 +63,6 @@ ActiveRecord::Schema.define(version: 20180322152752) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "profile_photo"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "username"
-    t.string "role", default: "member", null: false
-=======
->>>>>>> fecff7e852548a6f56776ea782b71a682bef996b
     t.string "avatar"
     t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
