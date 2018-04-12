@@ -1,0 +1,265 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+ .top-bar {
+      background: #453F3B;
+      height: 4.0rem;
+      line-height: 2.8125rem;
+      margin-bottom: 0;
+      overflow: hidden;
+      position: relative;
+  }
+  .top-bar-section li:not(.has-form) a:not(.button) {
+     background: #78786A;
+     line-height: 2.8125rem;
+     padding: 0 0.9375rem;
+}
+
+   button, .button {
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       border-radius: 0;
+       border-style: solid;
+       border-width: 0;
+       cursor: pointer;
+       font-family: 'Bree Serif', serif;
+       font-weight: normal;
+       line-height: normal;
+       margin: 0 0 1.25rem;
+       position: relative;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       padding: 1rem 2rem 1.0625rem 2rem;
+       font-size: 1rem;
+       background-color: #78786A;
+       border-color: #78786A;
+       color: #FFFFFF;
+       transition: background-color 300ms ease-out;
+   }
+a {
+    background-color: #78786A;
+}
+.top-bar ul {
+    background-color: #f5e8e800;
+}
+a {
+    color: #453F3B;
+    line-height: inherit;
+    text-decoration: none;
+
+}
+a:hover{
+  color: white;
+}
+body {
+    background: #C7C9B1;
+    color: #222;
+    cursor: auto;
+    font-family: 'Bree Serif', serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+a img {
+    width: 400px;
+    height: 200px;
+    object-fit: contain;
+    background: linear-gradient(#0E0E0E,#453F3B,#5B5C56,#78786A);
+    background-size: cover;
+    clear: both;
+    margin: 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 1%;
+
+  }
+  .button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: 'Bree Serif', serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem 1.0625rem 2rem;
+    font-size: 1rem;
+    background-color: #78786A;
+    border-color: #78786A;
+    color: #FFFFFF;
+    transition: background-color 10ms ease-out;
+    transition-property: background-color;
+    transition-duration: 10ms;
+    transition-timing-function: ease-out;
+    transition-delay: none;
+}
+.button:hover
+{
+background-image:none;
+background-color:#121111;
+}
+
+ul{
+    float:left
+}
+body {
+    background: #C7C9B1;
+    color: #453F3B;
+    cursor: auto;
+    font-family: 'Bree Serif', serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+h2 {
+    font-size: 1.5rem;
+    color: #453F3B;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    margin-left: 0.0rem;
+    margin-top: 0.2rem;
+    text-rendering: optimizeLegibility;
+}
+h1 {
+    font-size: 2.0rem;
+    color: #453F3B;
+    margin-left: 2.8rem;
+
+}
+.picture-buttons {
+background-color: #C7C9B2;
+}
+
+.log-in {
+  background-color: #C7C9B2;
+}
+.callout {
+    margin: 0 0 1rem;
+    padding: 1rem;
+    border: 1px solid hsla(0,0%,4%,.25);
+    border-radius: 0;
+    position: relative;
+    color: #0a0a0a;
+    background-color: #5B5C56;
+}
+label {
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+input[type="text"] {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #040404;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.75);
+    display: block;
+    font-family: inherit;
+    font-size: 0.875rem;
+    height: 2.3125rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: border-color 0.15s linear, background 0.15s linear;
+    -moz-transition: border-color 0.15s linear, background 0.15s linear;
+    -ms-transition: border-color 0.15s linear, background 0.15s linear;
+    -o-transition: border-color 0.15s linear, background 0.15s linear;
+    transition: border-color 0.15s linear, background 0.15s linear;
+}
+button:hover {
+    background-color: #111111;
+}
+#avatar{
+  border-radius: 10px;
+  max-width: 10%;
+  height: auto;
+}
+
+#pup{
+  max-width: 60%;
+  height: auto;
+}
+
+#nextprevious {
+  margin: 15px
+}
+
+#reviews {
+  margin-top: 40px;
+  width: 100px;
+  text-align: left
+}
+
+#addreview {
+  margin-left: 0px;
+}
+
+#searchbar {
+  margin: 10px
+}
+
+#delete {
+  padding-bottom: 5px
+}
+
+#doggo {
+  font-family: 'Indie Flower', cursive;
+}
+
+#email {
+  margin: 0px;
+  font-size: 10px;
+  margin-bottom: 5px;
+  font-weight: bold
+}
+
+#addbreed {
+  margin: 20px;
+  background-color: #C6CBB0;
+}
+
+#page-numbers{
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  width: 100%;
+}
